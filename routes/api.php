@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -23,12 +25,18 @@ Route::group(['namespace'=>'Share','middleware'=>['notCheckToken']],function(){
     Route::any('share_info',['uses'=>'ShareController@share_info']);//分享页面内容
 });
 
+Route::group(['namespace'=>'Carte','middleware'=>['notCheckToken']],function(){
+    Route::any('upload_file',['uses'=>'UploadController@upload_file']); //文件上传
+    Route::any('filetest',['uses'=>'UploadController@index']); //文件上传
+});
+
 
 
 Route::group(['namespace'=>'Carte','middleware'=>['checkToken']],function(){
     Route::any('add_info',['uses'=>'CarteController@add_info']); //添加名片信息
     Route::any('update_info',['uses'=>'CarteController@update_info']); //修改名片信息
-    Route::any('upload_file',['uses'=>'UploadController@upload_file']); //文件上传
+//    Route::any('upload_file',['uses'=>'UploadController@upload_file']); //文件上传
+//    Route::any('filetest',['uses'=>'UploadController@index']); //文件上传
     Route::any('is_lawyer',['uses'=>'CarteController@is_lawyer']); //是否是律师
     Route::any('my_lawyer',['uses'=>'CarteController@my_lawyer']); //我的页面
     Route::any('add_praise',['uses'=>'CarteController@add_praise']); //点赞
@@ -50,6 +58,7 @@ Route::any('notify',['uses'=>'Payment\WepayController@notify']); //微信支付�
 
 //不验证token   token可有可无
 Route::group(['namespace'=>'Carte','middleware'=>['notCheckToken']],function(){
+
     Route::any('info_show',['uses'=>'CarteController@info_show']); //名片信息展示
     Route::any('field_list',['uses'=>'CarteController@field_list']); //擅长领域
     Route::any('access',['uses'=>'CarteController@access']); //访客数量
