@@ -28,10 +28,10 @@ class LoginController extends Controller
         $openids = json_decode($openids,true);
         $sessionKey = isset($openids['session_key'])?$openids['session_key']:'';
         if(empty($code)||empty($encryptedData)||empty($iv)){
-            jsonout(400,'参数有误');
+            jsonout(400,'wrong param');
         }
         if(empty($sessionKey)){
-            jsonout(402,'获取sessionKey失败');
+            jsonout(402,'get sessionKey failed');
         }
 //        $openid = $openids['openid'];
         $skey = md5($sessionKey);
@@ -47,26 +47,26 @@ class LoginController extends Controller
             jsonout(402,$errCode);
         }
         if(empty($userInfo)){
-            jsonout(500,'解密数据有误');
+            jsonout(500,'decrypted data failed');
         }
-        $uid = isset($userInfo['unionId'])?$userInfo['unionId']:'';
+        $unionId = isset($userInfo['unionId'])?$userInfo['unionId']:'';
         //判断有无该用户
         $db = new Dbcommon();
-        $is_data = $db->common_select('user',['uopenid'=>$userInfo['openId']],['id']);
+        $is_data = $db->common_select('wechat_user',['openid'=>$userInfo['openId']],['id']);
         if(empty(json_decode(json_encode($is_data),true))){
             //添加数据库
             DB::beginTransaction();
             $insertDataUser = array(
-                'uopenid'=>$userInfo['openId'],
-                'uid'=>$uid,
+                'openid'=>$userInfo['openId'],
+                'unionid'=>$unionId,
             );
-            $u_id = $db->insert_and_get_id('user',$insertDataUser);
-            if($u_id<0){
+            $user_id = $db->insert_and_get_id('wechat_user',$insertDataUser);
+            if($user_id<1){
                 DB::rollback();  //回滚
-                jsonout(500,'账户数据添加出错');
+                jsonout(500,'inner error');
             }
             $insertDataUserInfo = array(
-                'u_id'=>$u_id,
+                'user_id'=>$user_id,
                 'gender'=>$userInfo['gender'],
                 'nickname'=>$userInfo['nickName'],
                 'avatarurl'=>$userInfo['avatarUrl'],
@@ -79,12 +79,12 @@ class LoginController extends Controller
             $resUserInfo = $db->common_insert('user_info',$insertDataUserInfo);
             if(!$resUserInfo){
                 DB::rollback();  //回滚
-                jsonout(500,'用户数据添加出错');
+                jsonout(500,'inner error');
             }
             DB::commit();//提交
         }else{
             //修改数据库
-            $u_id = $is_data->id;
+            $user_id = $is_data->id;
             $upDataUserInfo = array(
                 'gender'=>$userInfo['gender'],
                 'nickname'=>$userInfo['nickName'],
@@ -95,15 +95,15 @@ class LoginController extends Controller
                 'session_key'=>$sessionKey,
                 'token'=>$skey,
             );
-            $resUpUserInfo = $db->common_update('user_info',['u_id'=>$u_id],$upDataUserInfo);
+            $resUpUserInfo = $db->common_update('user_info',['user_id'=>$user_id],$upDataUserInfo);
             if(!$resUpUserInfo){
-                jsonout(500,'数据更新失败');
+                jsonout(500,'inner error');
             }
         }
 
-        $selectata = ['u_id as user_id','gender','nickname','avatarurl','country','province','city','session_key','token'];
+        $selectata = ['user_id','gender','nickname','avatarurl','country','province','city','session_key','token'];
         //查询该用户的用户信息
-        $userinfo = $db->common_select('user_info',['u_id'=>$u_id],$selectata);
+        $userinfo = $db->common_select('user_info',['user_id'=>$user_id],$selectata);
         jsonout(200,'success',$userinfo);
     }
     private function get_openid($code){

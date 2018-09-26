@@ -247,24 +247,23 @@ if(!function_exists('clean_xss')){
  */
 if(!function_exists('move_file')){
 
-    function move_file($old_filename,$new_filename)
+    function move_file($old_file_path_and_name,$new_file_path)
     {
         //旧文件是不是存在
-        if(!is_file($old_filename)){
+        if(!is_file($old_file_path_and_name)){
             return false;
         }
 
-        $position=strrpos($new_filename,'/');
-        //没有目录结构
-        if($position!=false){
-            $new_filepath=substr($new_filename,'0',$position);
+        $old_filename=substr($old_file_path_and_name,strrpos($old_file_path_and_name,'/'),-1);
 
-            if(!is_dir($new_filepath) ){
+        if(!is_dir($new_file_path) ){
 
-                make_directory($new_filepath);
-            }
-
+            make_directory($new_file_path);
         }
+
+        $new_filename=$new_file_path.$old_filename;
+
+
         return rename($old_filename,$new_filename);
     }
 }
@@ -272,7 +271,7 @@ if(!function_exists('move_file')){
 /*
  *递归的创建目录
  */
-if(function_exists('make_directory')){
+if(!function_exists('make_directory')){
 
     function make_directory( $dir ){
 

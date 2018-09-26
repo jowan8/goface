@@ -67,7 +67,7 @@
 <body>
 <div class="flex-center position-ref full-height">
     <form action="{{url('api/upload_file')}}" method="post" enctype="multipart/form-data">
-        <input type="file" name= 'file1' /><br>
+        <input type="file" name= 'goface_img' /><br>
         <input type="submit" value="点击上传" />
 
     </form>
