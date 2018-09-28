@@ -14,9 +14,6 @@ class LoginController extends Controller
 
         $inputs=$request->inputs;
         //检测版本号
-        if( !$inputs['version']>='1.0.0' ){
-            jsonout(400,'wrong version code');
-        }
         $code=isset($inputs['code'])?$inputs['code']:'';
 //        $rawData=isset($inputs['rawData'])?$inputs['rawData']:'';
 //        $signature=isset($inputs['signature'])?$inputs['signature']:'';

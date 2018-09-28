@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 class SignController extends Controller
 {
     /**
-     * 添加名片信息
+     * 添加招牌信息
      */
     public function sign_add( Request $request ){
         $inputs = $request->inputs;
@@ -21,9 +21,7 @@ class SignController extends Controller
         $wechat_img = isset($inputs['wechat_img'])?$inputs['wechat_img']:'';
         $introduction = isset($inputs['introduction'])?$inputs['introduction']:'';
         $sign_img_arr = isset($inputs['sign_img_json'])?$inputs['sign_img_json']:'';
-        if( !$inputs['version']>='1.0.0' ){
-            jsonout( 400,'wrong version');
-        }
+
 
         if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)||empty($wechat_img)||empty($sign_img_arr)){
             jsonout( 400,'invalid param' );
@@ -49,6 +47,7 @@ class SignController extends Controller
 
         $data = [
             'user_id' => $user_id,
+            'is_show' => 1,
             'sign_title' => $sign_title,
             'address' => $address,
             'telephone' => $telephone,
@@ -69,7 +68,7 @@ class SignController extends Controller
 
 
     /**
-     * 更新名片信息
+     * 更新招牌信息
      */
     public function sign_update( Request $request ){
         $inputs = $request->inputs;
@@ -82,9 +81,7 @@ class SignController extends Controller
         $wechat_img = isset($inputs['wechat_img'])?$inputs['wechat_img']:'';
         $introduction = isset($inputs['introduction'])?$inputs['introduction']:'';
         $sign_img_arr = isset($inputs['sign_img_json'])?$inputs['sign_img_json']:'';
-        if( !$inputs['version']>='1.0.0' ){
-            jsonout( 400,'wrong version');
-        }
+
 
         if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)||empty($wechat_img)||empty($sign_img_arr)||empty($id)){
             jsonout( 400,'invalid param' );
@@ -133,7 +130,7 @@ class SignController extends Controller
 
         $db = new Dbcommon();
 
-        $result = $db->common_update('sign',['id'=>$id],$data);
+        $result = $db->common_update('sign',['id'=>$id,'user_id'=>$user_id],$data);
         if($result){
             jsonout( 200,'success' );
         }else{
@@ -142,22 +139,56 @@ class SignController extends Controller
     }
 
     /**
-     * 名片信息展示
+     * 招牌信息展示
      */
     public function sign_show( Request $request ){
         $inputs = $request->inputs;
+        $page = isset($inputs['page'])?$inputs['page']:1;
+        $limit = isset($inputs['limit'])?$inputs['limit']:10;
 
-        if( !$inputs['version']>='1.0.0' ){
-            jsonout( 400,'版本错误');
-        }
+
 
         $user_id = $request->user_id;
         $db = new Dbcommon();
         $select = '*';
-        $sign_show = $db->common_select('sign',['user_id'=>$user_id],$select);
+        $sign_show = $db->common_selects('sign',['user_id'=>$user_id,'is_show'=>1],$select,$page,$limit);
         if( $sign_show ){
-
             jsonout( 200,'success',$sign_show );
+        } else {
+            jsonout( 500,'请求失败' );
+        }
+    }
+
+
+    /**
+     * 招牌信息收藏
+     */
+    public function sign_collect( Request $request ){
+        $inputs = $request->inputs;
+        $collect_id = isset($inputs['id'])?$inputs['id']:0;
+        $collect_to_user_id = isset($inputs['user_id'])?$inputs['user_id']:0;
+        $collect_user_id = $inputs->user_id;
+        if(empty($collect_id)||empty($collect_to_user_id)){
+            jsonout( 400,'invalid param' );
+        }
+
+        $data = [
+            'collect_id' => $collect_id,
+            'collect_user_id' => $collect_user_id,
+            //'collect_to_user_id' => $collect_to_user_id,
+        ];
+
+        $db = new Dbcommon();
+        $collect_status=$db->common_select('sign',$data,'id');
+        if($collect_status){
+            jsonout( 400,'Repeat request' );
+        }
+
+        $data['collect_to_user_id']=$collect_to_user_id;
+        $add_status = $db->common_insert('sign',$data);
+        if( $add_status ){
+            jsonout( 200,'success' );
+
         } else {
             jsonout( 500,'请求失败' );
         }
@@ -171,9 +202,7 @@ class SignController extends Controller
         $u_id = isset($inputs['user_id'])?$inputs['user_id']:'';
         $fabulous_u_id = $request->uid;
 
-        if( !$inputs['version']>='1.0.0' ){
-            jsonout( 400,'版本错误');
-        }
+
 
         if( $u_id==''||!is_numeric($u_id) ){
             jsonout( 400,'参数错误' );
@@ -245,9 +274,7 @@ class SignController extends Controller
         $inputs = $request->inputs;
         $u_id = isset($inputs['user_id'])?$inputs['user_id']:'';
 
-        if( !$inputs['version']>='1.0.0' ){
-            jsonout( 400,'版本错误');
-        }
+
         if( $u_id==''||!is_numeric($u_id) ){
             jsonout( 400,'参数错误' );
         }

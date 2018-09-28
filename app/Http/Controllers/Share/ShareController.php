@@ -24,9 +24,7 @@ class ShareController extends Controller{
     public function share_info( Request $request ){
         $inputs = $request->inputs;
 
-        if( !$inputs['version']>='1.0.0' ){
-            jsonout( 400,'版本错误');
-        }
+
 
         if( !empty($inputs['user_id']) ){
             $u_id = isset($inputs['user_id'])?$inputs['user_id']:'';

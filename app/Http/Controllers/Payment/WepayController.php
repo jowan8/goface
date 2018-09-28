@@ -15,9 +15,7 @@ class WepayController extends Controller{
     public function wechat_pay( Request $request ){
 
         $inputs = $request->inputs;
-        if( !$inputs['version']>='1.0.0' ){
-            jsonout( 400,'版本错误');
-        }
+
         $uid = $request->uid;
         $appid = Config::get('constants.WX_APPID');
         $mch_id = Config::get('constants.MCH_ID');
@@ -73,9 +71,7 @@ class WepayController extends Controller{
      * */
     public function wechat_pay_query( Request $request ){
         $inputs = $request->inputs;
-        if( !$inputs['version']>='1.0.0' ){
-            jsonout( 400,'版本错误');
-        }
+
         $order_num=isset($inputs['order_num'])?$inputs['order_num']:'';
         if(empty($order_num)){
             jsonout(400,'订单有误');
