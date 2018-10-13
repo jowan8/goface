@@ -14,13 +14,14 @@ class DynamicController extends Controller
     public function dynamic_add( Request $request ){
         $inputs = $request->inputs;
         $user_id = $request->user_id;
+        $sign_id = isset($inputs['sign_id'])?$inputs['sign_id']:0;
         $dynamic_title = isset($inputs['dynamic_title'])?$inputs['dynamic_title']:'';
         $dynamic_content = isset($inputs['dynamic_content'])?$inputs['dynamic_content']:'';
         $share_id = isset($inputs['share_id'])?$inputs['share_id']:0;
         $dynamic_img_arr = isset($inputs['dynamic_img_json'])?$inputs['dynamic_img_json']:'';
 
 
-        if(empty($booth_img_arr)&&empty($dynamic_content)){
+        if(empty($booth_img_arr)&&empty($dynamic_content)||empty($sign_id)){
             jsonout( 400,'invalid param' );
         }
 
@@ -36,6 +37,7 @@ class DynamicController extends Controller
 
         $data = [
             'user_id' => $user_id,
+            'sign_id' => $sign_id,
             'is_show' => 1,
             'dynamic_title' => $dynamic_title,
             'share_id' => $share_id,
@@ -53,6 +55,34 @@ class DynamicController extends Controller
         }
     }
 
+    /**
+     * 判断是否可与你添加动态
+     */
+    public function dynamic_can_add( Request $request ){
+        $inputs = $request->inputs;
+        $user_id = $request->user_id;
+        $sign_id = isset($inputs['sign_id'])?$inputs['sign_id']:0;
+
+        if( empty($sign_id)){
+            jsonout( 400,'invalid param' );
+        }
+
+        $db = new Dbcommon();
+
+        $result = $db->common_count('dynamic',['user_id'=>$user_id,'sign_id'=>$sign_id]);
+
+        if($result>=20){
+            $data['can_add']=0;
+        }else{
+            $data['can_add']=1;
+        }
+
+        if($result){
+            jsonout( 200,'success',$data);
+        }else{
+            jsonout( 500,'inner error' );
+        }
+    }
 
     /**
      * 更新展位信息
@@ -105,7 +135,7 @@ class DynamicController extends Controller
     /**
      * 展位信息展示
      */
-    public function Dynamic_show( Request $request ){
+    public function dynamic_show( Request $request ){
         $inputs = $request->inputs;
         $page = isset($inputs['page'])?$inputs['page']:1;
         $limit = isset($inputs['limit'])?$inputs['limit']:10;

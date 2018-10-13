@@ -15,11 +15,12 @@ class BoothController extends Controller
         $inputs = $request->inputs;
         $user_id = $request->user_id;
         $booth_title = isset($inputs['booth_title'])?$inputs['booth_title']:'';
+        $sign_id = isset($inputs['sign_id'])?$inputs['sign_id']:0;
         $booth_img_arr = isset($inputs['booth_img_json'])?$inputs['booth_img_json']:'';
         $little_case_json = isset($inputs['little_case_json'])?$inputs['little_case_json']:'';
         $big_case = isset($inputs['big_case'])?$inputs['big_case']:'';
 
-        if( empty($booth_title)||empty($booth_img_arr)||empty($little_case_json)||empty($big_case)){
+        if( empty($booth_title)||empty($booth_img_arr)||empty($little_case_json)||empty($big_case)||empty($sign_id)){
             jsonout( 400,'invalid param' );
         }
 
@@ -35,6 +36,7 @@ class BoothController extends Controller
 
         $data = [
             'user_id' => $user_id,
+            'sign_id' => $sign_id,
             'is_show' => 1,
             'booth_title' => $booth_title,
             'little_case_json' => $little_case_json,
@@ -52,14 +54,41 @@ class BoothController extends Controller
         }
     }
 
+    /**
+     * 判断是否可与你添加展位
+     */
+    public function booth_can_add( Request $request ){
+        $inputs = $request->inputs;
+        $user_id = $request->user_id;
+        $sign_id = isset($inputs['sign_id'])?$inputs['sign_id']:0;
 
+        if( empty($sign_id)){
+            jsonout( 400,'invalid param' );
+        }
+
+        $db = new Dbcommon();
+
+        $result = $db->common_count('booth',['user_id'=>$user_id,'sign_id'=>$sign_id]);
+
+        if($result>=20){
+            $data['can_add']=0;
+        }else{
+            $data['can_add']=1;
+        }
+
+        if($result){
+            jsonout( 200,'success',$data);
+        }else{
+            jsonout( 500,'inner error' );
+        }
+    }
     /**
      * 更新展位信息
      */
     public function booth_update( Request $request ){
         $inputs = $request->inputs;
         $user_id = $request->user_id;
-        $id = isset($inputs['id'])?$inputs['id']:'';
+        $id = isset($inputs['id'])?$inputs['id']:0;
         $booth_title = isset($inputs['booth_title'])?$inputs['booth_title']:'';
         $booth_img_arr = isset($inputs['booth_img_json'])?$inputs['booth_img_json']:'';
         $little_case_json = isset($inputs['little_case_json'])?$inputs['little_case_json']:'';
