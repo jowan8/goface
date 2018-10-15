@@ -57,6 +57,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'checkToken' => \App\Http\Middleware\CheckToken::class,
-        'notCheckToken' => \App\Http\Middleware\NotCheckToken::class,
+        'noCheckToken' => \App\Http\Middleware\NotCheckToken::class,
     ];
 }

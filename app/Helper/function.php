@@ -254,8 +254,7 @@ if(!function_exists('move_file')){
             return false;
         }
 
-        $old_filename=substr($old_file_path_and_name,strrpos($old_file_path_and_name,'/'),-1);
-
+        $old_filename=substr($old_file_path_and_name,strrpos($old_file_path_and_name,'/'));
         if(!is_dir($new_file_path) ){
 
             make_directory($new_file_path);
@@ -263,8 +262,7 @@ if(!function_exists('move_file')){
 
         $new_filename=$new_file_path.$old_filename;
 
-
-        return rename($old_filename,$new_filename);
+        return rename($old_file_path_and_name,$new_filename);
     }
 }
 

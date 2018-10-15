@@ -20,38 +20,40 @@ class DynamicController extends Controller
         $share_id = isset($inputs['share_id'])?$inputs['share_id']:0;
         $dynamic_img_arr = isset($inputs['dynamic_img_json'])?$inputs['dynamic_img_json']:'';
 
-
         if(empty($booth_img_arr)&&empty($dynamic_content)||empty($sign_id)){
             jsonout( 400,'invalid param' );
         }
+        if($inputs['version']>=100) {
+            $new_file_path = storage_path() . '/upload/' . date('Y-m') . '/' . date('d');
+            foreach ($dynamic_img_arr as $k => $v) {
+                $move_status = move_file(storage_path() . $v, $new_file_path);
 
-        $new_file_path=storage_path().'/upload/'.date('Y-m').'/'.date('d');
-        foreach ($dynamic_img_arr as $k=>$v){
-            $move_status=move_file(storage_path().$v,$new_file_path);
-
-            if($move_status==false){
-                jsonout( 500,'inner error' );
+                if ($move_status == false) {
+                    jsonout(500, 'inner error');
+                }
+                $dynamic_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $v;
             }
-            $dynamic_img_arr[$k]='/upload/'.date('Y-m').'/'.date('d').'/'.$v;
-        }
 
-        $data = [
-            'user_id' => $user_id,
-            'sign_id' => $sign_id,
-            'is_show' => 1,
-            'dynamic_title' => $dynamic_title,
-            'share_id' => $share_id,
-            'dynamic_content' => $dynamic_content,
-            'dynamic_img_json'=>json_encode($dynamic_img_arr)
-        ];
+            $data = [
+                'user_id' => $user_id,
+                'sign_id' => $sign_id,
+                'is_show' => 1,
+                'dynamic_title' => $dynamic_title,
+                'share_id' => $share_id,
+                'dynamic_content' => $dynamic_content,
+                'dynamic_img_json' => json_encode($dynamic_img_arr)
+            ];
 
-        $db = new Dbcommon();
+            $db = new Dbcommon();
 
-        $result = $db->common_insert('dynamic',$data);
-        if($result){
-            jsonout( 200,'success' );
+            $result = $db->common_insert('dynamic', $data);
+            if ($result) {
+                jsonout(200, 'success');
+            } else {
+                jsonout(500, 'inner error');
+            }
         }else{
-            jsonout( 500,'inner error' );
+            jsonout(400, 'wrong version');
         }
     }
 
@@ -66,21 +68,25 @@ class DynamicController extends Controller
         if( empty($sign_id)){
             jsonout( 400,'invalid param' );
         }
+        if($inputs['version']>=100) {
 
-        $db = new Dbcommon();
+            $db = new Dbcommon();
 
-        $result = $db->common_count('dynamic',['user_id'=>$user_id,'sign_id'=>$sign_id]);
+            $result = $db->common_count('dynamic', ['user_id' => $user_id, 'sign_id' => $sign_id]);
 
-        if($result>=20){
-            $data['can_add']=0;
+            if ($result >= 20) {
+                $data['can_add'] = 0;
+            } else {
+                $data['can_add'] = 1;
+            }
+
+            if ($result) {
+                jsonout(200, 'success', $data);
+            } else {
+                jsonout(500, 'inner error');
+            }
         }else{
-            $data['can_add']=1;
-        }
-
-        if($result){
-            jsonout( 200,'success',$data);
-        }else{
-            jsonout( 500,'inner error' );
+            jsonout(400, 'wrong version');
         }
     }
 
@@ -100,36 +106,38 @@ class DynamicController extends Controller
         if(empty($booth_img_arr)&&empty($dynamic_content)||empty($id)){
             jsonout( 400,'invalid param' );
         }
+        if($inputs['version']>=100) {
+            $new_file_path = storage_path() . '/upload/' . date('Y-m') . '/' . date('d');
+            foreach ($dynamic_img_arr as $k => $v) {
+                if (!file_exists(storage_path() . $v)) {
+                    $move_status = move_file(storage_path() . $v, $new_file_path);
 
-        $new_file_path=storage_path().'/upload/'.date('Y-m').'/'.date('d');
-        foreach ($dynamic_img_arr as $k=>$v){
-            if(!file_exists(storage_path().$v)) {
-                $move_status = move_file(storage_path() . $v, $new_file_path);
-
-                if ($move_status == false) {
-                    jsonout(500, 'inner error');
+                    if ($move_status == false) {
+                        jsonout(500, 'inner error');
+                    }
+                    $dynamic_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $v;
                 }
-                $dynamic_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $v;
             }
-        }
 
-        $data = [
-            'user_id' => $user_id,
-            'dynamic_title' => $dynamic_title,
-            'share_id' => $share_id,
-            'dynamic_content' => $dynamic_content,
-            'dynamic_img_json'=>json_encode($dynamic_img_arr)
-        ];
+            $data = [
+                'user_id' => $user_id,
+                'dynamic_title' => $dynamic_title,
+                'share_id' => $share_id,
+                'dynamic_content' => $dynamic_content,
+                'dynamic_img_json' => json_encode($dynamic_img_arr)
+            ];
 
-        $db = new Dbcommon();
+            $db = new Dbcommon();
 
-        $result = $db->common_update('dynamic',['id'=>$id,'user_id'=>$user_id],$data);
-        if($result){
-            jsonout( 200,'success' );
+            $result = $db->common_update('dynamic', ['id' => $id, 'user_id' => $user_id], $data);
+            if ($result) {
+                jsonout(200, 'success');
+            } else {
+                jsonout(500, 'inner error');
+            }
         }else{
-            jsonout( 500,'inner error' );
+            jsonout(400, 'wrong version');
         }
-
     }
 
     /**
@@ -139,19 +147,20 @@ class DynamicController extends Controller
         $inputs = $request->inputs;
         $page = isset($inputs['page'])?$inputs['page']:1;
         $limit = isset($inputs['limit'])?$inputs['limit']:10;
-
-
-
-
         $user_id = $request->user_id;
-        $db = new Dbcommon();
-        $select = '*';
-        $sign_show = $db->common_selects('dynamic',['user_id'=>$user_id,'is_show'=>1],$select,$page,$limit);
-        if( $sign_show ){
 
-            jsonout( 200,'success',$sign_show );
-        } else {
-            jsonout( 500,'请求失败' );
+        if($inputs['version']>=100) {
+            $db = new Dbcommon();
+            $select = '*';
+            $sign_show = $db->common_selects('dynamic', ['user_id' => $user_id, 'is_show' => 1], $select, $page, $limit);
+            if ($sign_show) {
+
+                jsonout(200, 'success', $sign_show);
+            } else {
+                jsonout(500, '请求失败');
+            }
+        }else{
+            jsonout(400, 'wrong version');
         }
     }
 
@@ -166,26 +175,29 @@ class DynamicController extends Controller
         if(empty($collect_id)||empty($collect_to_user_id)){
             jsonout( 400,'invalid param' );
         }
+        if($inputs['version']>=100) {
+            $data = [
+                'collect_id' => $collect_id,
+                'collect_user_id' => $collect_user_id,
+                //'collect_to_user_id' => $collect_to_user_id,
+            ];
 
-        $data = [
-            'collect_id' => $collect_id,
-            'collect_user_id' => $collect_user_id,
-            //'collect_to_user_id' => $collect_to_user_id,
-        ];
+            $db = new Dbcommon();
+            $collect_status = $db->common_select('dynamic', $data, 'id');
+            if ($collect_status) {
+                jsonout(400, 'Repeat request');
+            }
 
-        $db = new Dbcommon();
-        $collect_status=$db->common_select('dynamic',$data,'id');
-        if($collect_status){
-            jsonout( 400,'Repeat request' );
-        }
+            $data['collect_to_user_id'] = $collect_to_user_id;
+            $add_status = $db->common_insert('dynamic', $data);
+            if ($add_status) {
+                jsonout(200, 'success');
 
-        $data['collect_to_user_id']=$collect_to_user_id;
-        $add_status = $db->common_insert('dynamic',$data);
-        if( $add_status ){
-            jsonout( 200,'success' );
-
-        } else {
-            jsonout( 500,'请求失败' );
+            } else {
+                jsonout(500, '请求失败');
+            }
+        }else{
+            jsonout(400, 'wrong version');
         }
     }
 

@@ -26,10 +26,7 @@ class CheckToken
                 parse_str($input,$inputs);//处理x-www.form-urlencoded
             }
         }
-        //判断版本
-        if( (!isset($inputs['version']))||empty(trim($inputs['version'])) ){
-            jsonout(400,'wrong version code');
-        }
+
         //判断token
         if(isset($inputs['token'])&&(!empty(trim($inputs['token'])))){
             $db=new Dbcommon();
@@ -38,12 +35,18 @@ class CheckToken
                 jsonout(401,'forbidden');
             }
 
-            $request->uid=$rs->user_id;
+            $request->user_id=$rs->user_id;
             $request->inputs=$inputs;
 
         }else{
             jsonout(401,'forbidden');
         }
+
+        //判断版本
+        if( (!isset($inputs['version']))||empty(trim($inputs['version'])) ){
+            jsonout(400,'wrong version code');
+        }
+
         return $next($request);
     }
 }

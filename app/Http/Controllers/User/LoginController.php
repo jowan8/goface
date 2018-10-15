@@ -13,10 +13,7 @@ class LoginController extends Controller
     public function login(Request $request){
 
         $inputs=$request->inputs;
-        //检测版本号
         $code=isset($inputs['code'])?$inputs['code']:'';
-//        $rawData=isset($inputs['rawData'])?$inputs['rawData']:'';
-//        $signature=isset($inputs['signature'])?$inputs['signature']:'';
         $encryptedData=isset($inputs['encryptedData'])?$inputs['encryptedData']:'';
         $iv=isset($inputs['iv'])?$inputs['iv']:'';
         //验证数据
@@ -30,14 +27,11 @@ class LoginController extends Controller
         if(empty($sessionKey)){
             jsonout(402,'get sessionKey failed');
         }
-//        $openid = $openids['openid'];
+
         $skey = md5($sessionKey);
         $Obj = new \WxBizDataCrypt($appid, $sessionKey);
         $errCode = $Obj->decryptData($encryptedData, $iv,$data);
-        if(empty($data)){
-            exit;
-            //jsonout(500,'解密数据有误');
-        }
+
         if ($errCode == 0) {
             $userInfo = json_decode($data,true);
         } else {
