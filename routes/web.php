@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    jsonout(401,'Unauthorized');
-    //return view('welcome');
+    //jsonout(401,'Unauthorized');
+    return view('goface');
 });
 
 
