@@ -20,7 +20,7 @@ class UploadController extends Controller{
 
         //$url_path = storage_path().'/upload/'.date('Ym').'/'.date('d').'/';
         $base_url='/upload/tmp/';
-        $url_path=storage_path().$base_url;
+        $url_path=public_path().$base_url;
         $is_dir=make_directory($url_path);
 
         if($is_dir){

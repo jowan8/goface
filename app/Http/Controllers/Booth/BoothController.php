@@ -24,9 +24,9 @@ class BoothController extends Controller
             jsonout( 400,'invalid param' );
         }
         if($inputs['version']>=100) {
-            $new_file_path = storage_path() . '/upload/' . date('Y-m') . '/' . date('d');
+            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
             foreach ($booth_img_arr as $k => $v) {
-                $move_status1 = move_file(storage_path() . $v, $new_file_path);
+                $move_status1 = move_file(public_path() . $v, $new_file_path);
 
                 if ($move_status1 == false) {
                     jsonout(500, 'inner error');
@@ -108,11 +108,11 @@ class BoothController extends Controller
         }
         if($inputs['version']>=100) {
 
-            $new_file_path = storage_path() . '/upload/' . date('Y-m') . '/' . date('d');
+            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
             foreach ($booth_img_arr as $k => $v) {
-                if (!file_exists(storage_path() . $v)) {
+                if (!file_exists(public_path() . $v)) {
 
-                    $move_status = move_file(storage_path() . $v, $new_file_path);
+                    $move_status = move_file(public_path() . $v, $new_file_path);
 
                     if ($move_status == false) {
                         jsonout(500, 'inner error');

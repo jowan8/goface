@@ -35,8 +35,8 @@ class SignController extends Controller
             }
 
             //转存文件
-            $wechat_img = storage_path(). $wechat_img;
-            $new_file_path = storage_path() . '/upload/' . date('Y-m') . '/' . date('d');
+            $wechat_img = public_path(). $wechat_img;
+            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
             $move_status = move_file($wechat_img, $new_file_path);
             if ($move_status == false) {
                 jsonout(500, 'inner error');
@@ -45,7 +45,7 @@ class SignController extends Controller
 
             if(is_array($sign_img_arr)){
                 foreach ($sign_img_arr as $k => $v) {
-                    $move_status1 = move_file(storage_path() . $v, $new_file_path);
+                    $move_status1 = move_file(public_path() . $v, $new_file_path);
 
                     if ($move_status1 == false) {
                         jsonout(500, 'inner error');
@@ -99,12 +99,12 @@ class SignController extends Controller
         }
 
         if($inputs['version'] >= 100) {
-            $new_file_path = storage_path() . '/upload/' . date('Y-m') . '/' . date('d');
+            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
 
             //查看该文件是不是存在，存在则不更新
-            if (!file_exists(storage_path() . $wechat_img)) {
+            if (!file_exists(public_path() . $wechat_img)) {
                 //转存文件
-                $wechat_img = storage_path() . '/tmp/' . $wechat_img;
+                $wechat_img = public_path() . '/tmp/' . $wechat_img;
                 $move_status = move_file($wechat_img, $new_file_path);
 
                 if ($move_status == false) {
@@ -117,8 +117,8 @@ class SignController extends Controller
 
             foreach ($sign_img_arr as $k => $v) {
 
-                if (!file_exists(storage_path() . $v)) {
-                    $move_status1 = move_file(storage_path() . $v, $new_file_path);
+                if (!file_exists(public_path() . $v)) {
+                    $move_status1 = move_file(public_path() . $v, $new_file_path);
 
                     if ($move_status1 == false) {
                         jsonout(500, 'inner error');
