@@ -58,7 +58,7 @@ class BoothController extends Controller
     }
 
     /**
-     * 判断是否可与你添加展位
+     * 判断是否可添加展位
      */
     public function booth_can_add( Request $request ){
         $inputs = $request->inputs;
@@ -69,7 +69,7 @@ class BoothController extends Controller
             jsonout( 400,'invalid param' );
         }
 
-        if($inputs['version']>=100) {
+        if($inputs['version']>=100){
             $db = new Dbcommon();
 
             $result = $db->common_count('booth', ['user_id' => $user_id, 'sign_id' => $sign_id]);
@@ -79,15 +79,10 @@ class BoothController extends Controller
             } else {
                 $data['can_add'] = 1;
             }
+            jsonout(200, 'success', $data);
 
-            if ($result) {
-                jsonout(200, 'success', $data);
-            } else {
-                jsonout(500, 'inner error');
-            }
         }else{
             jsonout(400, 'wrong version');
-
         }
     }
     /**
@@ -169,16 +164,16 @@ class BoothController extends Controller
     /**
      * 展位信息收藏
      */
-    public function booth_collect( Request $request )
-    {
+    public function booth_collect( Request $request ){
         $inputs = $request->inputs;
-        $collect_id = isset($inputs['id']) ? $inputs['id'] : 0;
-        $collect_to_user_id = isset($inputs['user_id']) ? $inputs['user_id'] : 0;
+        $collect_id = isset($inputs['id'])?$inputs['id']:0;
+        $collect_type = isset($inputs['collect_type'])?$inputs['collect_type']:0;//0-关注 1-取消关注
+        $collect_to_user_id = isset($inputs['user_id'])?$inputs['user_id']:0;//被收藏的用户的ID
         $collect_user_id = $inputs->user_id;
-        if (empty($collect_id) || empty($collect_to_user_id)) {
-            jsonout(400, 'invalid param');
+        if(empty($collect_id)||empty($collect_to_user_id)){
+            jsonout( 400,'invalid param' );
         }
-        if($inputs['version']>=100) {
+        if($inputs['version'] >= 100) {
             $data = [
                 'collect_id' => $collect_id,
                 'collect_user_id' => $collect_user_id,
@@ -186,26 +181,33 @@ class BoothController extends Controller
             ];
 
             $db = new Dbcommon();
-            $collect_status = $db->common_select('booth', $data, 'id');
-            if ($collect_status) {
-                jsonout(400, 'Repeat request');
+            $collect_status = $db->common_select('sign', $data, 'id');
+            //关注
+            if($collect_type==0) {
+                if($collect_status){
+                    jsonout(400, 'repeat request');
+                }
+                $data['collect_to_user_id'] = $collect_to_user_id;
+                $status = $db->common_insert('sign', $data);
+            }elseif($collect_type==1){
+                $status = $db->common_delete('sign', $data);
+            }else{
+                $status=true;
             }
 
-            $data['collect_to_user_id'] = $collect_to_user_id;
-            $add_status = $db->common_insert('booth', $data);
-            if ($add_status) {
-                jsonout(200, 'success');
-
-            } else {
-                jsonout(500, 'inner error');
+            if($status){
+                jsonout(200,'success');
+            }else{
+                jsonout(500,'failed');
             }
+
         }else{
             jsonout(400, 'wrong version');
         }
     }
 
     /**
-     * 展位信息展示
+     * 删除展位信息
      */
     public function booth_del( Request $request ){
         $inputs = $request->inputs;
@@ -215,13 +217,10 @@ class BoothController extends Controller
         }
         $user_id = $request->user_id;
         if($inputs['version']>=100) {
-
             $db = new Dbcommon();
-
-            $select = '*';
-            $sign_show = $db->common_select('booth', ['user_id' => $user_id, 'id' => $id], $select);
-            if ($sign_show) {
-                jsonout(200, 'success', $sign_show);
+            $status = $db->common_update('booth', ['user_id' => $user_id, 'id' => $id], ['is_delete'=>1]);
+            if ($status) {
+                jsonout(200, 'success');
             } else {
                 jsonout(500, 'inner error');
             }

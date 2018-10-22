@@ -17,10 +17,16 @@ class CheckToken
     public function handle($request, Closure $next)
     {
         $input=file_get_contents('php://input');//接受数据流 不能接收form-data
+        $db=new Dbcommon();
         if(empty($input)){
             //处理form-data
             $inputs=$_POST;
         }else{
+            $req=[
+                'request_data'=>$input,
+                'client_ip'=>ip2long($_SERVER['HTTP_CLIENT_IP']),
+            ];
+            $db->common_insert('request',$req);
             $inputs=json_decode($input,true);//处理raw-json
             if(is_null($inputs)){
                 parse_str($input,$inputs);//处理x-www.form-urlencoded
@@ -29,7 +35,7 @@ class CheckToken
 
         //判断token
         if(isset($inputs['token'])&&(!empty(trim($inputs['token'])))){
-            $db=new Dbcommon();
+
             $rs=$db->common_select('user_info',['token'=>$inputs['token']],['user_id']);
             if(empty($rs)){
                 jsonout(401,'forbidden');

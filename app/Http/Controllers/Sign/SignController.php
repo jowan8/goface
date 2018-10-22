@@ -62,6 +62,7 @@ class SignController extends Controller
                 'telephone' => $telephone,
                 'wechat_num' => $wechat_num,
                 'wechat_img' => $wechat_img,
+                'introduction' => $introduction,
                 'sign_img_json' => json_encode($sign_img_arr)
             ];
 
@@ -180,7 +181,8 @@ class SignController extends Controller
     public function sign_collect( Request $request ){
         $inputs = $request->inputs;
         $collect_id = isset($inputs['id'])?$inputs['id']:0;
-        $collect_to_user_id = isset($inputs['user_id'])?$inputs['user_id']:0;
+        $collect_type = isset($inputs['collect_type'])?$inputs['collect_type']:0;//0-关注 1-取消关注
+        $collect_to_user_id = isset($inputs['user_id'])?$inputs['user_id']:0;//被收藏的用户的ID
         $collect_user_id = $inputs->user_id;
         if(empty($collect_id)||empty($collect_to_user_id)){
             jsonout( 400,'invalid param' );
@@ -194,18 +196,25 @@ class SignController extends Controller
 
             $db = new Dbcommon();
             $collect_status = $db->common_select('sign', $data, 'id');
-            if ($collect_status) {
-                jsonout(400, 'Repeat request');
+            //关注
+            if($collect_type==0) {
+                if($collect_status){
+                    jsonout(400, 'repeat request');
+                }
+                $data['collect_to_user_id'] = $collect_to_user_id;
+                $status = $db->common_insert('sign', $data);
+            }elseif($collect_type==1){
+                $status = $db->common_delete('sign', $data);
+            }else{
+                $status=true;
             }
 
-            $data['collect_to_user_id'] = $collect_to_user_id;
-            $add_status = $db->common_insert('sign', $data);
-            if ($add_status) {
-                jsonout(200, 'success');
-
-            } else {
-                jsonout(500, '请求失败');
+            if($status){
+                jsonout(200,'success');
+            }else{
+                jsonout(500,'failed');
             }
+
         }else{
             jsonout(400, 'wrong version');
         }
