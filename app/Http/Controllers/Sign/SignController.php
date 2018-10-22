@@ -21,7 +21,7 @@ class SignController extends Controller
         $wechat_img = isset($inputs['wechat_img'])?$inputs['wechat_img']:'';
         $introduction = isset($inputs['introduction'])?$inputs['introduction']:'';
         $sign_img_arr = isset($inputs['sign_img_json'])?$inputs['sign_img_json']:'';
-        if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)||empty($wechat_img)||empty($sign_img_arr)){
+        if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)||empty($sign_img_arr)){
             jsonout( 400,'invalid param' );
         }
         if($inputs['version'] >= 100) {
@@ -35,14 +35,15 @@ class SignController extends Controller
             }
 
             //转存文件
-            $wechat_img = public_path(). $wechat_img;
-            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
-            $move_status = move_file($wechat_img, $new_file_path);
-            if ($move_status == false) {
-                jsonout(500, 'inner error');
+            if ($wechat_img) {
+                $wechat_img = public_path() . $wechat_img;
+                $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
+                $move_status = move_file($wechat_img, $new_file_path);
+                if ($move_status == false) {
+                    jsonout(500, 'inner error');
+                }
+                $wechat_img = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $wechat_img;
             }
-            $wechat_img = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $wechat_img;
-
             if(is_array($sign_img_arr)){
                 foreach ($sign_img_arr as $k => $v) {
                     $move_status1 = move_file(public_path() . $v, $new_file_path);
@@ -101,19 +102,20 @@ class SignController extends Controller
         if($inputs['version'] >= 100) {
             $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
 
-            //查看该文件是不是存在，存在则不更新
-            if (!file_exists(public_path() . $wechat_img)) {
-                //转存文件
-                $wechat_img = public_path() . '/tmp/' . $wechat_img;
-                $move_status = move_file($wechat_img, $new_file_path);
+            if($wechat_img) {
+                //查看该文件是不是存在，存在则不更新
+                if (!file_exists(public_path() . $wechat_img)) {
+                    //转存文件
+                    $wechat_img = public_path() . '/tmp/' . $wechat_img;
+                    $move_status = move_file($wechat_img, $new_file_path);
 
-                if ($move_status == false) {
-                    jsonout(500, 'inner error');
+                    if ($move_status == false) {
+                        jsonout(500, 'inner error');
+                    }
+
+                    $wechat_img = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $wechat_img;
                 }
-
-                $wechat_img = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $wechat_img;
             }
-
 
             foreach ($sign_img_arr as $k => $v) {
 
