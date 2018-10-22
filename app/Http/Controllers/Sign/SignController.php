@@ -183,7 +183,7 @@ class SignController extends Controller
         $collect_id = isset($inputs['id'])?$inputs['id']:0;
         $collect_type = isset($inputs['collect_type'])?$inputs['collect_type']:0;//0-关注 1-取消关注
         $collect_to_user_id = isset($inputs['user_id'])?$inputs['user_id']:0;//被收藏的用户的ID
-        $collect_user_id = $inputs->user_id;
+        $collect_user_id = $request->user_id;
         if(empty($collect_id)||empty($collect_to_user_id)){
             jsonout( 400,'invalid param' );
         }
