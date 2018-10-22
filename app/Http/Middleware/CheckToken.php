@@ -24,7 +24,7 @@ class CheckToken
         }else{
             $req=[
                 'request_data'=>$input,
-                'client_ip'=>ip2long($_SERVER['HTTP_CLIENT_IP']),
+                'client_ip'=>ip2long(getenv('HTTP_CLIENT_IP')),
             ];
             $db->common_insert('request',$req);
             $inputs=json_decode($input,true);//处理raw-json
