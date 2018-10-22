@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0906cb2e-e0d7-409d-aaa0-c01b5e7a8a8a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Booth/BoothController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Booth/BoothController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Dynamic/DynamicController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Dynamic/DynamicController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Sign/SignController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Sign/SignController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckToken.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckToken.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,7 +17,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BoothController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BoothController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Booth/BoothController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="205">
@@ -59,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CheckToken.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CheckToken.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CheckToken.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+            <state relative-caret-position="483">
+              <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -139,10 +137,10 @@
         <option value="$PROJECT_DIR$/resources/views/goface.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Upload/UploadController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/CheckToken.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Sign/SignController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Dynamic/DynamicController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Booth/BoothController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/CheckToken.php" />
       </list>
     </option>
   </component>
@@ -547,12 +545,12 @@
       <workItem from="1539355720995" duration="87000" />
       <workItem from="1539403559024" duration="35509000" />
       <workItem from="1539855016411" duration="3351000" />
-      <workItem from="1540190122936" duration="5482000" />
+      <workItem from="1540190122936" duration="5732000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47748000" />
+    <option name="totallyTimeSpent" value="47998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -918,14 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CheckToken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Sign/SignController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
@@ -946,6 +936,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
           <caret line="171" column="35" lean-forward="false" selection-start-line="171" selection-start-column="35" selection-end-line="171" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/CheckToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="28" />
           <folding />
         </state>
       </provider>
