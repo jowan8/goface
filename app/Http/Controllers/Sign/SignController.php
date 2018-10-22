@@ -35,9 +35,9 @@ class SignController extends Controller
             }
 
             //转存文件
+            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
             if ($wechat_img) {
                 $wechat_img = public_path() . $wechat_img;
-                $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
                 $move_status = move_file($wechat_img, $new_file_path);
                 if ($move_status == false) {
                     jsonout(500, 'inner error');
