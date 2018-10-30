@@ -16,15 +16,16 @@ class BoothController extends Controller
         $user_id = $request->user_id;
         $booth_title = isset($inputs['booth_title'])?$inputs['booth_title']:'';
         $sign_id = isset($inputs['sign_id'])?$inputs['sign_id']:0;
-        $booth_img_arr = isset($inputs['booth_img_json'])?$inputs['booth_img_json']:'';
-        $little_case_json = isset($inputs['little_case_json'])?$inputs['little_case_json']:'';
+        $booth_img_str = isset($inputs['booth_img_str'])?trim($inputs['booth_img_str'],''):'';
+        $little_case_str = isset($inputs['little_case_str'])?$inputs['little_case_str']:'';
         $big_case = isset($inputs['big_case'])?$inputs['big_case']:'';
 
-        if( empty($booth_title)||empty($booth_img_arr)||empty($little_case_json)||empty($big_case)||empty($sign_id)){
+        if( empty($booth_title)||empty($booth_img_str)||empty($little_case_str)||empty($big_case)||empty($sign_id)){
             jsonout( 400,'invalid param' );
         }
         if($inputs['version']>=100) {
             $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
+            $booth_img_arr=explode(',',$booth_img_str);
             foreach ($booth_img_arr as $k => $v) {
                 $move_status1 = move_file(public_path() . $v, $new_file_path);
 
@@ -39,9 +40,9 @@ class BoothController extends Controller
                 'sign_id' => $sign_id,
                 'is_show' => 1,
                 'booth_title' => $booth_title,
-                'little_case_json' => $little_case_json,
+                'little_case_str' => $little_case_str,
                 'big_case' => $big_case,
-                'booth_img_json' => json_encode($booth_img_arr)
+                'booth_img_json' => implode('',$booth_img_arr)
             ];
 
             $db = new Dbcommon();
@@ -93,17 +94,18 @@ class BoothController extends Controller
         $user_id = $request->user_id;
         $id = isset($inputs['id'])?$inputs['id']:0;
         $booth_title = isset($inputs['booth_title'])?$inputs['booth_title']:'';
-        $booth_img_arr = isset($inputs['booth_img_json'])?$inputs['booth_img_json']:'';
-        $little_case_json = isset($inputs['little_case_json'])?$inputs['little_case_json']:'';
+        $booth_img_str = isset($inputs['booth_img_str'])?$inputs['booth_img_str']:'';
+        $little_case_str = isset($inputs['little_case_str'])?$inputs['little_case_str']:'';
         $big_case = isset($inputs['big_case'])?$inputs['big_case']:'';
 
 
-        if( empty($booth_title)||empty($booth_img_arr)||empty($little_case_json)||empty($big_case)||empty($id)){
+        if( empty($booth_title)||empty($booth_img_str)||empty($little_case_str)||empty($big_case)||empty($id)){
             jsonout( 400,'invalid param' );
         }
         if($inputs['version']>=100) {
 
             $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
+            $booth_img_arr=explode(',',$booth_img_str);
             foreach ($booth_img_arr as $k => $v) {
                 if (!file_exists(public_path() . $v)) {
 
@@ -119,9 +121,9 @@ class BoothController extends Controller
             $data = [
                 'user_id' => $user_id,
                 'booth_title' => $booth_title,
-                'little_case_json' => $little_case_json,
+                'little_case_json' => $little_case_str,
                 'big_case' => $big_case,
-                'booth_img_json' => json_encode($booth_img_arr)
+                'booth_img_str' => json_encode($booth_img_arr)
             ];
 
             $db = new Dbcommon();

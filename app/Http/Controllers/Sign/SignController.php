@@ -20,7 +20,9 @@ class SignController extends Controller
         $wechat_num = isset($inputs['wechat_num'])?$inputs['wechat_num']:'';
         $wechat_img = isset($inputs['wechat_img'])?$inputs['wechat_img']:'';
         $introduction = isset($inputs['introduction'])?$inputs['introduction']:'';
-        $sign_img_arr = isset($inputs['sign_img_json'])?$inputs['sign_img_json']:'';
+        $sign_longitude = isset($inputs['sign_longitude'])?$inputs['sign_longitude']:'';
+        $sign_latitude= isset($inputs['sign_latitude'])?$inputs['sign_latitude']:'';
+        $sign_img_str = isset($inputs['sign_img_str'])?trim($inputs['sign_img_str'],','):'';
         if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)||empty($sign_img_arr)){
             jsonout( 400,'invalid param' );
         }
@@ -44,6 +46,8 @@ class SignController extends Controller
                 }
                 $wechat_img = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $wechat_img;
             }
+
+            $sign_img_arr=explode(',',$sign_img_str);
             if(is_array($sign_img_arr)){
                 foreach ($sign_img_arr as $k => $v) {
                     $move_status1 = move_file(public_path() . $v, $new_file_path);
@@ -51,11 +55,13 @@ class SignController extends Controller
                     if ($move_status1 == false) {
                         jsonout(500, 'inner error');
                     }
-                    $sign_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $v;
-                }
+                    $sign_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $v;                }
             }
+
             $data = [
                 'user_id' => $user_id,
+                'sign_longitude'=>$sign_longitude,
+                'sign_latitude'=>$sign_latitude,
                 'is_show' => 1,
                 'sign_title' => $sign_title,
                 'address' => $address,
@@ -63,7 +69,7 @@ class SignController extends Controller
                 'wechat_num' => $wechat_num,
                 'wechat_img' => $wechat_img,
                 'introduction' => $introduction,
-                'sign_img_json' => json_encode($sign_img_arr)
+                'sign_img_json' => implode(',',$sign_img_arr)
             ];
 
             $db = new Dbcommon();
@@ -93,7 +99,7 @@ class SignController extends Controller
         $wechat_num = isset($inputs['wechat_num'])?$inputs['wechat_num']:'';
         $wechat_img = isset($inputs['wechat_img'])?$inputs['wechat_img']:'';
         $introduction = isset($inputs['introduction'])?$inputs['introduction']:'';
-        $sign_img_arr = isset($inputs['sign_img_json'])?$inputs['sign_img_json']:'';
+        $sign_img_str = isset($inputs['sign_img_str'])?trim($inputs['sign_img_str'],','):'';
 
 
         if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)||empty($wechat_img)||empty($sign_img_arr)||empty($id)){
@@ -118,6 +124,7 @@ class SignController extends Controller
                 }
             }
 
+            $sign_img_arr=explode(',',$sign_img_str);
             foreach ($sign_img_arr as $k => $v) {
 
                 if (!file_exists(public_path() . $v)) {
@@ -138,7 +145,7 @@ class SignController extends Controller
                 'telephone' => $telephone,
                 'wechat_num' => $wechat_num,
                 'wechat_img' => $wechat_img,
-                'sign_img_json' => json_encode($sign_img_arr)
+                'sign_img_str' => implode(',',$sign_img_arr)
             ];
 
             $db = new Dbcommon();
