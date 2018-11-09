@@ -23,7 +23,7 @@ class SignController extends Controller
         $sign_longitude = isset($inputs['sign_longitude'])?$inputs['sign_longitude']:'';
         $sign_latitude= isset($inputs['sign_latitude'])?$inputs['sign_latitude']:'';
         $sign_img_str = isset($inputs['sign_img_str'])?trim($inputs['sign_img_str'],','):'';
-        if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)||empty($sign_img_arr)){
+        if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)||empty($sign_img_str)){
             jsonout( 400,'invalid param' );
         }
         if($inputs['version'] >= 100) {
