@@ -42,7 +42,7 @@ class BoothController extends Controller
                 'booth_title' => $booth_title,
                 'little_case_str' => $little_case_str,
                 'big_case' => $big_case,
-                'booth_img_json' => implode('',$booth_img_arr)
+                'booth_img_str' => implode('',$booth_img_arr)
             ];
 
             $db = new Dbcommon();

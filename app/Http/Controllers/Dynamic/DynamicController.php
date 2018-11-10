@@ -42,7 +42,7 @@ class DynamicController extends Controller
                 'dynamic_title' => $dynamic_title,
                 'share_id' => $share_id,
                 'dynamic_content' => $dynamic_content,
-                'dynamic_img_json' => implode(',',$dynamic_img_arr)
+                'dynamic_img_str' => implode(',',$dynamic_img_arr)
             ];
 
             $db = new Dbcommon();
@@ -101,7 +101,7 @@ class DynamicController extends Controller
         $dynamic_title = isset($inputs['dynamic_title'])?$inputs['dynamic_title']:'';
         $dynamic_content = isset($inputs['dynamic_content'])?$inputs['dynamic_content']:'';
         $share_id = isset($inputs['share_id'])?$inputs['share_id']:0;
-        $dynamic_img_arr = isset($inputs['dynamic_img_json'])?$inputs['dynamic_img_json']:'';
+        $dynamic_img_arr = isset($inputs['dynamic_img_str'])?$inputs['dynamic_img_str']:'';
 
 
         if(empty($booth_img_arr)&&empty($dynamic_content)||empty($id)){
@@ -125,7 +125,7 @@ class DynamicController extends Controller
                 'dynamic_title' => $dynamic_title,
                 'share_id' => $share_id,
                 'dynamic_content' => $dynamic_content,
-                'dynamic_img_json' => json_encode($dynamic_img_arr)
+                'dynamic_img_str' => json_encode($dynamic_img_arr)
             ];
 
             $db = new Dbcommon();

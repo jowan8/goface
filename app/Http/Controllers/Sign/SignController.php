@@ -23,9 +23,10 @@ class SignController extends Controller
         $sign_longitude = isset($inputs['sign_longitude'])?$inputs['sign_longitude']:'';
         $sign_latitude= isset($inputs['sign_latitude'])?$inputs['sign_latitude']:'';
         $sign_img_str = isset($inputs['sign_img_str'])?trim($inputs['sign_img_str'],','):'';
-        if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)||empty($sign_img_str)){
+        if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)){
             jsonout( 400,'invalid param' );
         }
+
         if($inputs['version'] >= 100) {
 
             $user_id = $request->user_id;
@@ -50,14 +51,16 @@ class SignController extends Controller
             $sign_img_arr=explode(',',$sign_img_str);
             if(is_array($sign_img_arr)){
                 foreach ($sign_img_arr as $k => $v) {
-                    $move_status1 = move_file(public_path() . $v, $new_file_path);
+                    if (!empty($v)) {
+                        $move_status1 = move_file(public_path() . $v, $new_file_path);
 
-                    if ($move_status1 == false) {
-                        jsonout(500, 'inner error');
+                        if ($move_status1 == false) {
+                            jsonout(500, 'inner error');
+                        }
+                        $sign_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $v;
                     }
-                    $sign_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $v;                }
+                }
             }
-
             $data = [
                 'user_id' => $user_id,
                 'sign_longitude'=>$sign_longitude,
@@ -69,7 +72,7 @@ class SignController extends Controller
                 'wechat_num' => $wechat_num,
                 'wechat_img' => $wechat_img,
                 'introduction' => $introduction,
-                'sign_img_json' => implode(',',$sign_img_arr)
+                'sign_img_str' => implode(',',$sign_img_arr)
             ];
 
             $db = new Dbcommon();
@@ -102,7 +105,7 @@ class SignController extends Controller
         $sign_img_str = isset($inputs['sign_img_str'])?trim($inputs['sign_img_str'],','):'';
 
 
-        if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)||empty($wechat_img)||empty($sign_img_arr)||empty($id)){
+        if( empty($sign_title)||empty($address)||empty($telephone)||empty($wechat_num)||empty($sign_img_arr)||empty($id)){
             jsonout( 400,'invalid param' );
         }
 
@@ -126,14 +129,15 @@ class SignController extends Controller
 
             $sign_img_arr=explode(',',$sign_img_str);
             foreach ($sign_img_arr as $k => $v) {
+                if(!empty($v)){
+                    if (!file_exists(public_path() . $v)) {
+                        $move_status1 = move_file(public_path() . $v, $new_file_path);
 
-                if (!file_exists(public_path() . $v)) {
-                    $move_status1 = move_file(public_path() . $v, $new_file_path);
-
-                    if ($move_status1 == false) {
-                        jsonout(500, 'inner error');
+                        if ($move_status1 == false) {
+                            jsonout(500, 'inner error');
+                        }
+                        $sign_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $v;
                     }
-                    $sign_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $v;
                 }
 
             }
@@ -185,7 +189,7 @@ class SignController extends Controller
     /**
      * 招牌信息收藏
      */
-    public function sign_collect( Request $request ){
+    public function sign_collect(Request $request){
         $inputs = $request->inputs;
         $collect_id = isset($inputs['id'])?$inputs['id']:0;
         $collect_type = isset($inputs['collect_type'])?$inputs['collect_type']:0;//0-关注 1-取消关注
