@@ -1,5 +1,6 @@
 <?php
 return [
+    'DAOMAIN_HTTP'=>'http://'.$_SERVER['HTTP_HOST'],
     'WX_APPID'=>'wx3b501923f5a3a565',
     'WX_APPSECRET'=>'2e55df7ae3e09a54069cfd9146ba9792',
     'MCH_ID'=>'1512936011',//微信支付商户id

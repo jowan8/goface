@@ -51,7 +51,7 @@ class SignController extends Controller
             $sign_img_arr=explode(',',$sign_img_str);
             if(is_array($sign_img_arr)){
                 foreach ($sign_img_arr as $k => $v) {
-                    if (!empty($v)) {
+                    if (!empty($v)){
                         $move_status1 = move_file(public_path() . $v, $new_file_path);
 
                         if ($move_status1 == false) {
@@ -176,6 +176,17 @@ class SignController extends Controller
             $select = '*';
             $sign_show = $db->common_select('sign', ['user_id' => $user_id, 'is_show' => 1], $select);
             if ($sign_show) {
+                if($sign_show){
+                    $http=config('constants.DAOMAIN_HTTP');
+                    $img_str=$sign_show->sign_img_str;
+                    $img_arr=explode(',',$img_str);
+                    if(!empty($img_arr)){
+                        foreach ($img_arr as $k=>$v){
+                            $img_arr[$k]=$http.$v;
+                        }
+                        $sign_show->sign_img_str=implode($img_arr,',');
+                    }
+                }
                 jsonout(200, 'success', $sign_show);
             } else {
                 jsonout(500, '请求失败');
