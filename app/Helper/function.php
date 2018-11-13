@@ -254,7 +254,7 @@ if(!function_exists('move_file')){
             return false;
         }
 
-        $old_filename=substr($old_file_path_and_name,strrpos($old_file_path_and_name,'/'));
+        $old_filename=substr($old_file_path_and_name,strrpos($old_file_path_and_name,'/')+1);
         if(!is_dir($new_file_path) ){
 
             make_directory($new_file_path);
