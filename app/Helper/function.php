@@ -262,7 +262,10 @@ if(!function_exists('move_file')){
 
         $new_filename=$new_file_path.$old_filename;
 
-        return rename($old_file_path_and_name,$new_filename);
+         if(rename($old_file_path_and_name,$new_filename)){
+             return $old_filename;
+         }
+         return false;
     }
 }
 

@@ -57,7 +57,8 @@ class SignController extends Controller
                         if ($move_status1 == false) {
                             jsonout(500, 'inner error');
                         }
-                        $sign_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $v;
+
+                        $sign_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $move_status1;
                     }
                 }
             }
@@ -136,7 +137,7 @@ class SignController extends Controller
                         if ($move_status1 == false) {
                             jsonout(500, 'inner error');
                         }
-                        $sign_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $v;
+                        $sign_img_arr[$k] = '/upload/' . date('Y-m') . '/' . date('d') . '/' . $move_status1;
                     }
                 }
 
