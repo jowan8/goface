@@ -38,7 +38,7 @@ class SignController extends Controller
             }
 
             //转存文件
-            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
+            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d').'/';
             if ($wechat_img) {
                 $wechat_img = public_path() . $wechat_img;
                 $move_status = move_file($wechat_img, $new_file_path);
@@ -111,7 +111,7 @@ class SignController extends Controller
         }
 
         if($inputs['version'] >= 100) {
-            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
+            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d').'/';
 
             if($wechat_img) {
                 //查看该文件是不是存在，存在则不更新

@@ -104,7 +104,7 @@ class BoothController extends Controller
         }
         if($inputs['version']>=100) {
 
-            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d');
+            $new_file_path = public_path() . '/upload/' . date('Y-m') . '/' . date('d').'/';
             $booth_img_arr=explode(',',$booth_img_str);
             foreach ($booth_img_arr as $k => $v) {
                 if (!file_exists(public_path() . $v)) {
