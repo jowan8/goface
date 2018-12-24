@@ -185,7 +185,7 @@ class DynamicController extends Controller
             ];
 
             $db = new Dbcommon();
-            $collect_status = $db->common_select('sign', $data, 'id');
+            $collect_status = $db->common_select('dynamic_collect', $data, 'id');
             //关注
             if($collect_type==0) {
                 if($collect_status){
