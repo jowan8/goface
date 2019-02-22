@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>GOFACE</title>
+    <title>视图一</title>
 
     <style>
         body{

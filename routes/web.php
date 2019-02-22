@@ -11,13 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    //jsonout(401,'Unauthorized');
-    return view('goface');
-});
+Route::get('/','TestController@jumpTo');
 
-
-Route::any('/set_question','TestController@set_question');
 
 /*Route::group(['namespace'=>'Question'],function(){
     Route::any('/question_list','QuestionController@question_list');
