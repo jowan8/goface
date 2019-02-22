@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>视图一</title>
+    <link rel="icon" href={{asset('images/ico.ico')}} type="images/x-ico" />
+    <title>{{$title}}</title>
 
     <style>
         body{

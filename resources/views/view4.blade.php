@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>HTML5 Canvas鼠标移动花纹特效</title>
+    <link rel="icon" href={{asset('images/ico.ico')}} type="images/x-ico" />
+    <title>{{$title}}</title>
 
     <style>
         body {
