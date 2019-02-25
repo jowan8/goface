@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class TestController
 {
   public function jumpTo(Request $request){
-      $i = 10;//mt_rand(1,10);
+      $i = mt_rand(1,10);
       switch ($i){
           case 1:
               $title = '随鼠标生成多彩粒子,超好看-精美H5动效';
