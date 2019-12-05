@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0906cb2e-e0d7-409d-aaa0-c01b5e7a8a8a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/view9.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view10.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view6.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/view6.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view7.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/view7.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view8.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/view8.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view9.blade.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,21 +132,22 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\phpStudy\WWW\goface\resources\views" />
-      <recent name="C:\phpStudy\WWW\goface\public" />
-      <recent name="C:\phpStudy\WWW\goface\config" />
-      <recent name="C:\phpStudy\WWW\goface\app\Http\Middleware" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\phpStudy\WWW\goface\public\js\view6" />
       <recent name="C:\phpStudy\WWW\goface\public\js" />
       <recent name="C:\phpStudy\WWW\goface\public\images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\goface\resources\views" />
+      <recent name="C:\phpStudy\WWW\goface\resources\views" />
+      <recent name="C:\phpStudy\WWW\goface\public" />
+      <recent name="C:\phpStudy\WWW\goface\config" />
+      <recent name="C:\phpStudy\WWW\goface\app\Http\Middleware" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -200,7 +197,7 @@
       <workItem from="1550805329505" duration="3636000" />
       <workItem from="1550817245440" duration="16693000" />
       <workItem from="1575360339969" duration="8989000" />
-      <workItem from="1575522590963" duration="351000" />
+      <workItem from="1575522590963" duration="3009000" />
     </task>
     <servers />
   </component>
