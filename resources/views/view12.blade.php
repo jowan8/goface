@@ -63,10 +63,10 @@
         </div>
         <div class="trex-body">
             <div class="trex-eye"></div>
-            <img width="300" src="{{asset('images/20191205/trex-body.png'}}" />
+            <img width="300" src="{{asset('images/20191205/trex-body.png')}}" />
         </div>
         <div class="trex-arm-front">
-            <img width="60" src="{{asset('images/20191205/trex-arm3.png'}}" />
+            <img width="60" src="{{asset('images/20191205/trex-arm3.png')}}" />
         </div>
     </div>
 </section>
