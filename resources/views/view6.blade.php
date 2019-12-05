@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="icon" href={{asset('images/ico.ico')}} type="images/x-ico" />
     <title>{{$title}}</title>
 
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>

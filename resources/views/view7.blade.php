@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
+    <link rel="icon" href={{asset('images/ico.ico')}} type="images/x-ico" />
     <title>{{$title}}</title>
 
     <style>
