@@ -29,7 +29,7 @@
         };
 
         var Teamkill = function() {
-            var text = 'CS GO - Teamkill';
+            var text = '一 堆 BUG 网  欢 迎 您!';
             var font = 'Helvetica';
             var fontSize = 100;
 
