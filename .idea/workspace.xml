@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0906cb2e-e0d7-409d-aaa0-c01b5e7a8a8a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/view9.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/20191205/meat.cur" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/20191205/trex-arm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/20191205/trex-arm3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/20191205/trex-body.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jquery-1.11.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/view10.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/view11.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/view12.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/view13.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/view14.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
     </list>
@@ -17,43 +26,6 @@
     <execution>
       <executable />
     </execution>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>file(</find>
-      <find>-file(</find>
-      <find>-&gt;file(</find>
-      <find>-&gt;file</find>
-      <find>-&gt;move(</find>
-      <find>-&gt;move</find>
-      <find>-&gt;mov</find>
-      <find>-&gt;mo</find>
-      <find>-&gt;m</find>
-      <find>-&gt;fil</find>
-      <find>-&gt;fi</find>
-      <find>-&gt;f</find>
-      <find>-&gt;</find>
-      <find>stric</find>
-      <find>DB_PREFIX</find>
-      <find>error_p_title</find>
-      <find>CheckToken</find>
-      <find>Unauthorized</find>
-      <find>error_new_content</find>
-      <find>storage</find>
-      <find>storage_path</find>
-      <find>implode</find>
-      <find>sign_img_j</find>
-      <find>img_j</find>
-      <find>$new_file_path</find>
-      <find>control</find>
-      <find>width</find>
-      <find>Capture</find>
-      <find>toggleCapture</find>
-      <find>png</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>public_path</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -132,22 +104,23 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cdfs-new" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\goface\public\js" />
       <recent name="C:\phpStudy\WWW\goface\public\js\view6" />
       <recent name="C:\phpStudy\WWW\goface\public\js" />
       <recent name="C:\phpStudy\WWW\goface\public\images" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\projects\goface\resources\views" />
+      <recent name="D:\projects\goface\public\images\20191205" />
+      <recent name="D:\projects\goface\resources\assets\js" />
       <recent name="C:\phpStudy\WWW\goface\resources\views" />
       <recent name="C:\phpStudy\WWW\goface\public" />
-      <recent name="C:\phpStudy\WWW\goface\config" />
-      <recent name="C:\phpStudy\WWW\goface\app\Http\Middleware" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -197,7 +170,7 @@
       <workItem from="1550805329505" duration="3636000" />
       <workItem from="1550817245440" duration="16693000" />
       <workItem from="1575360339969" duration="8989000" />
-      <workItem from="1575522590963" duration="3009000" />
+      <workItem from="1575522590963" duration="6413000" />
     </task>
     <servers />
   </component>
