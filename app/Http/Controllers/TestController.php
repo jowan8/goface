@@ -24,12 +24,12 @@ class TestController
           case 5:
               $title = '鼠标移动产生的灯光效果,朦胧美-精美H5动效';
               break;
-          case 6:
-              $title = '自动生成多彩水泡,非常漂亮-精美H5动效';
-              break;
-          case 7:
-              $title = '动态雪花效果,超美-精美H5动效';
-              break;
+          //case 6:
+          //    $title = '自动生成多彩水泡,非常漂亮-精美H5动效';
+          //    break;
+          //case 7:
+          //    $title = '动态雪花效果,超美-精美H5动效';
+          //    break;
           case 8:
               $title = '炫酷的喷泉灯光效果-精美H5动效';
               break;
