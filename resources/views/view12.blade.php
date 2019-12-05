@@ -70,7 +70,7 @@
         </div>
     </div>
 </section>
-<script src="{{asset('js/jquery-1.11.1.min.js'}}"></script>
+<script src="{{asset('js/jquery-1.11.1.min.js')}}"></script>
 <script>
     function calculateRotation(element, offset) {
         var x = element.offset().left + element.width() / 2;
