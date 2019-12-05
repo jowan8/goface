@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Canvas 多种形状的星星图案动画</title>
+    <link rel="icon" href={{asset('images/ico.ico')}} type="images/x-ico" />
+    <title>{{$title}}</title>
 </head>
 <body>
 <canvas></canvas>
