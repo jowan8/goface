@@ -4,6 +4,11 @@
     <list default="true" id="0906cb2e-e0d7-409d-aaa0-c01b5e7a8a8a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/view10.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/view6.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/view6.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/view7.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/view7.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/view8.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/view8.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/view9.blade.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +199,8 @@
       <workItem from="1545640674116" duration="1981000" />
       <workItem from="1550805329505" duration="3636000" />
       <workItem from="1550817245440" duration="16693000" />
-      <workItem from="1575360339969" duration="6961000" />
+      <workItem from="1575360339969" duration="8989000" />
+      <workItem from="1575522590963" duration="351000" />
     </task>
     <servers />
   </component>
@@ -215,7 +221,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
