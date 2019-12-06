@@ -1,17 +1,15 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>jQuery+Html5实现唯美表白动画代码</title>
-    <!--
-    <link type="text/css" rel="stylesheet" href="./js/default.css">
-    <script type="text/javascript" src="./js/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/jscex.min.js"></script>
-    <script type="text/javascript" src="./js/jscex-parser.js"></script>
-    <script type="text/javascript" src="./js/jscex-jit.js"></script>
-    <script type="text/javascript" src="./js/jscex-builderbase.min.js"></script>
-    <script type="text/javascript" src="./js/jscex-async.min.js"></script>
-    <script type="text/javascript" src="./js/jscex-async-powerpack.min.js"></script>
-    <script type="text/javascript" src="./js/functions.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./js/love.js" charset="utf-8"></script>
-    -->
+    <link type="text/css" rel="stylesheet" href="{{asset('/js/view15/default.css')}}">
+    <script type="text/javascript" src="{{asset('/js/view15/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/js/view15/jscex.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/js/view15/jscex-parser.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/js/view15/jscex-jit.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/js/view15/jscex-builderbase.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/js/view15/jscex-async.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/js/view15/jscex-async-powerpack.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('/js/view15/functions.js')}}" charset="utf-8"></script>
+    <script type="text/javascript" src="{{asset('/js/view15/love.js')}}" charset="utf-8"></script>
     <style type="text/css">
         <!--
         .STYLE1 {color: #666666}
@@ -20,10 +18,9 @@
 </head>
 <body>
 <audio autoplay="autopaly">
-    <source src="renxi.mp3" type="audio/mp3" />
+    <source src="{{asset('js/view15/renxi.mp3')}}" type="audio/mp3" />
 </audio>
 <div id="main">
-    <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。</div>
     <div id="wrap">
         <div id="text">
             <div id="code">

@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0906cb2e-e0d7-409d-aaa0-c01b5e7a8a8a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/view15.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/functions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/index.html-sign=e482ecf38a4ec6f0ce0938d9694bc79d&amp;timestamp=1575601430.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex-async-powerpack.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex-async.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex-builderbase.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex-jit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex-parser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/love.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/view15/renxi.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view10.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/view10.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/view15.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/view15.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +106,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cdfs-new" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js/view15" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
@@ -107,11 +118,11 @@
       <recent name="C:\phpStudy\WWW\goface\public\images" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\goface\public\js\view15" />
       <recent name="D:\projects\goface\resources\views" />
       <recent name="D:\projects\goface\public\images\20191205" />
       <recent name="D:\projects\goface\resources\assets\js" />
       <recent name="C:\phpStudy\WWW\goface\resources\views" />
-      <recent name="C:\phpStudy\WWW\goface\public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -161,7 +172,7 @@
       <workItem from="1550805329505" duration="3636000" />
       <workItem from="1550817245440" duration="16693000" />
       <workItem from="1575360339969" duration="8989000" />
-      <workItem from="1575522590963" duration="10468000" />
+      <workItem from="1575522590963" duration="12341000" />
     </task>
     <servers />
   </component>
