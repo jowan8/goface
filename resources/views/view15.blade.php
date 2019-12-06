@@ -26,12 +26,19 @@
             <div id="code">
                 <font color="#FF0000">
                     <span class="say"> 等到黑夜翻面之后 会是新的白昼</span><br>
+                    <span class="say"> </span><br>
                     <span class="say"> 等到海啸退去之后 只是潮起潮落</span><br>
+                    <span class="say"> </span><br>
                     <span class="say"> 别到最后你才发觉 心里头的野兽 </span><br>
+                    <span class="say"> </span><br>
                     <span class="say"> 还没到最终就已经罢休</span><br>
+                    <span class="say"> </span><br>
                     <span class="say"> 心脏没有那么脆弱 总还会有执着</span><br>
+                    <span class="say"> </span><br>
                     <span class="say"> 人生不会只有收获 总难免有伤口</span><br>
+                    <span class="say"> </span><br>
                     <span class="say"> 不要害怕生命中 不完美的角落</span><br>
+                    <span class="say"> </span><br>
                     <span class="say"> 阳光在每个裂缝中散落</span><br>
                     <span class="say"> </span><br>
                     <span class="say"><span class="space"></span> -- 裂缝中的阳光--</span>
