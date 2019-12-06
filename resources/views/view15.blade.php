@@ -1,5 +1,5 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>jQuery+Html5实现唯美表白动画代码</title>
+    <title>{{$title}}</title>
     <link type="text/css" rel="stylesheet" href="{{asset('/js/view15/default.css')}}">
     <script type="text/javascript" src="{{asset('/js/view15/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('/js/view15/jscex.min.js')}}"></script>
