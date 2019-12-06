@@ -2,18 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0906cb2e-e0d7-409d-aaa0-c01b5e7a8a8a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/view15/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/view15/functions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/view15/index.html-sign=e482ecf38a4ec6f0ce0938d9694bc79d&amp;timestamp=1575601430.htm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/view15/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex-async-powerpack.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex-async.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex-builderbase.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex-jit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex-parser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/view15/jscex.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/view15/love.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/view15/renxi.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/view15.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/view15.blade.php" afterDir="false" />
     </list>
@@ -172,7 +160,7 @@
       <workItem from="1550805329505" duration="3636000" />
       <workItem from="1550817245440" duration="16693000" />
       <workItem from="1575360339969" duration="8989000" />
-      <workItem from="1575522590963" duration="12341000" />
+      <workItem from="1575522590963" duration="13829000" />
     </task>
     <servers />
   </component>

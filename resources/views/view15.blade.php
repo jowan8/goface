@@ -24,26 +24,23 @@
     <div id="wrap">
         <div id="text">
             <div id="code">
-                <font color="#FF0000">  	<span class="say">亲爱的php中文网粉丝，我爱你，虽然你看不见我对你的告白</span><br>
+                <font color="#FF0000">
+                    <span class="say"> 等到黑夜翻面之后 会是新的白昼</span><br>
+                    <span class="say"> 等到海啸退去之后 只是潮起潮落</span><br>
+                    <span class="say"> 别到最后你才发觉 心里头的野兽 </span><br>
+                    <span class="say"> 还没到最终就已经罢休</span><br>
+                    <span class="say"> 心脏没有那么脆弱 总还会有执着</span><br>
+                    <span class="say"> 人生不会只有收获 总难免有伤口</span><br>
+                    <span class="say"> 不要害怕生命中 不完美的角落</span><br>
+                    <span class="say"> 阳光在每个裂缝中散落</span><br>
                     <span class="say"> </span><br>
-                    <span class="say"> 我知道我不会甜言蜜语，但是我会用行动证明一切</span><br>
-                    <span class="say"> </span><br>
-
-
-
-                    <span class="say">你说我啰嗦，有些东西因为越在乎所以越失去</span><br>
-                    <span class="say">因为我太爱你了，所以我失去你了</span><br>
-                    <span class="say">因为我太啰嗦了，所以你离开了我</span><br>
-
-                    <span class="say">虽然你看不见我的告白，但是我还是要把这些心里话说出来</span><br>
-                    <span class="say"> </span><br>
-                    <span class="say"><span class="space"></span> -- 爱你的php中文网--</span>
+                    <span class="say"><span class="space"></span> -- 裂缝中的阳光--</span>
                 </font></p>
             </div>
         </div>
         <div id="clock-box">
-            <span class="STYLE1"></span><font color="#33CC00">亲爱的php中文网粉丝，我喜欢你</font>
-            <span class="STYLE1">已经是……</span>
+            <span class="STYLE1"></span><font color="#33CC00">❤❤❤❤❤❤❤❤❤❤❤❤❤❤</font>
+            <span class="STYLE1"></span>
             <div id="clock"></div>
         </div>
         <canvas id="canvas" width="1100" height="680"></canvas>
@@ -210,9 +207,5 @@
         runAsync().start();
     })();
 </script>
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-    <p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
-    <p>来源：<a href="http://www.php.cn/" target="_blank"></a></p>
-</div>
 </body>
 </html>
