@@ -12,7 +12,7 @@
 */
 
 Route::get('/','TestController@index');
-Route::get('/','TestController@jumpTo');
+Route::get('/jumpTo','TestController@jumpTo');
 
 
 /*Route::group(['namespace'=>'Question'],function(){

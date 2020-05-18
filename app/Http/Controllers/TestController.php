@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TestController
 {
 
     public function index(Request $request)
     {
-        $works = Db::name('work')->where(['id'=>['>',0]])->select();
+        $works = DB::table('work')->where('id','>',0)->get();
+
         return view('index',['title'=>'学习计划','works'=>$works]);
     }
         public function jumpTo(Request $request){
