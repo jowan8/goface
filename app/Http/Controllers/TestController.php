@@ -19,7 +19,10 @@ class TestController
       //if(!$i){
       //    $i = 10;
       //}
-      $i = mt_rand(1,15);
+            $i = $request->get('style',0);
+            if(!$i){
+                $i = mt_rand(1,15);
+            }
 
  /*     switch ($i){
           case 1:
