@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('/','TestController@index');
 Route::get('/','TestController@jumpTo');
 
 

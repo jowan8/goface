@@ -6,7 +6,13 @@ use Illuminate\Http\Request;
 
 class TestController
 {
-  public function jumpTo(Request $request){
+
+    public function index(Request $request)
+    {
+        $works = Db::name('work')->where(['id'=>['>',0]])->select();
+        return view('index',['title'=>'学习计划','works'=>$works]);
+    }
+        public function jumpTo(Request $request){
       //$i = $request->get('style',0);
       //if(!$i){
       //    $i = 10;
