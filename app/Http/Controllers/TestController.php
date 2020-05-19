@@ -10,9 +10,11 @@ class TestController
 
     public function index(Request $request)
     {
+        $work_types = DB::table('work_type')->where('is_show',1)->orderBy('sort','asc')->limit(8)->get();
         $works = DB::table('work')->where('id','>',0)->get();
+        $shows = DB::table('show')->where('is_show',1)->orderBy('sort','asc')->limit(6)->get();
 
-        return view('index',['title'=>'学习计划','works'=>$works]);
+        return view('index',['title'=>'学习计划','works'=>$works,'work_types'=>$work_types,'shows'=>$shows]);
     }
         public function jumpTo(Request $request){
       //$i = $request->get('style',0);
