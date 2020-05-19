@@ -34,6 +34,6 @@
         @endforeach
         </tbody>
     </table>
-    查看特效:{{url('jumpTo')}}
+    <a href="{{url('jumpTo')}}">查看特效</a>
 </body>
 </html>
