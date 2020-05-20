@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="format-detection" content="telephone=no" /><!--不识别手机号-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><!--屏幕宽高限定 -->
     <meta name="apple-mobile-web-app-capable" content="yes" /><!--开启web app的支持-->
@@ -106,14 +107,14 @@
     <div class="icon-cl">
         <ul class="icon">
         @foreach($work_types as $type)
-                <li> <img src="{{$type->icon}}"> {{$type->name}}</li>
+                <li> <a href="{{url('/lists?type_id='.$type->id)}}"><img src="{{$type->icon}}"> {{$type->name}}</a></li>
         @endforeach
         </ul>
     </div>
 
     <div class="learning">
         <table class="table">
-            <caption> 学习指南</caption>
+            <caption> 热门文章</caption>
             <thead>
             <tr>
                 <th> 文章名  </th>
@@ -124,7 +125,7 @@
             <tbody>
             @foreach($works as $work)
                 <tr>
-                    <td> <a href="{{$work->data_url}}" target="_blank" > {{$work->work_name}} </a> </td>
+                    <td> <a class="detail" data-url="{{$work->data_url}}" data-id="{{$work->id}}" target="_blank" onclick="see_detail(this)" > {{$work->work_name}} </a> </td>
                     <td> @if($work->view_times>100) 99+ @else{{$work->view_times}}@endif </td>
                     <td> {{$work->created_at}} </td>
                 </tr>
@@ -132,7 +133,7 @@
             </tbody>
             <tr>
                 <td></td>
-                <td><a class="more">查看更多</a></td>
+                <td><a class="more" href="{{url('/lists')}}" >查看更多</a></td>
                 <td></td>
             </tr>
         </table>
@@ -167,6 +168,33 @@
         pagination: {
             el: '.swiper-pagination',
         },
-    })
+    });
+
+/*
+    $('.detail').each(function(i,n){
+        $(n).on('click',function(){
+            console.log($(n).data())
+        })
+    });
+*/
+    function see_detail(obj) {
+        var url = $(obj).data('url');
+        var aid = $(obj).data('id');
+        $.ajax({
+            type: "POST",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data:{'aid':aid},
+            url: "/add_views",
+            dataType: "json",
+            success: function (data) {
+                console.log('success');
+            }
+        });
+        window.location.href = url;
+    }
+
+
 </script>
 </html>
