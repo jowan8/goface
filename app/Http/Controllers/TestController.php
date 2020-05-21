@@ -19,64 +19,11 @@ class TestController extends Controller
 
     public function jumpTo(Request $request)
     {
-      //$i = $request->get('style',0);
-      //if(!$i){
-      //    $i = 10;
-      //}
-            $i = $request->get('style',0);
-            if(!$i){
-                $i = mt_rand(1,15);
-            }
-
- /*     switch ($i){
-          case 1:
-              $title = '随鼠标生成多彩粒子,超好看-精美H5动效';//1
-              break;
-          case 2:
-              $title = '3D立体平面图,超炫酷-精美H5动效';//1
-              break;
-          case 3:
-              $title = '随鼠快速转动的多彩粒子,超酷-精美H5动效';//1
-              break;
-          case 4:
-              $title = '随鼠生成的炫酷彩带,超动感-精美H5动效';//1
-              break;
-          case 5:
-              $title = '鼠标移动产生的灯光效果,朦胧美-精美H5动效';//1
-              break;
-          case 6:
-              $title = '炫酷的喷泉灯光效果-精美H5动效';
-              break;
-          case 7:
-              $title = '动态雨滴效果-精美H5动效';
-              break;
-          case 8:
-              $title = '超级好看的烟花效果-精美H5动效';//1
-              break;
-          case 9:
-              $title = '404';//1
-              break;
-          case 10:
-              $title = '10';
-              break;
-          case 11:
-              $title = '11';//1
-              break;
-          case 12:
-              $title = '12';//1
-              break;
-          case 13:
-              $title = '13';//1
-              break;
-          case 14:
-              $title = '14';//1
-              break;
-          default:
-              $title = '啦啦啦';
-              break;
-      }
-*/
-      return view('view'.$i,['title'=>'一堆bug网']);
+        $i = $request->get('style',0);
+        if(!$i){
+            $i = mt_rand(1,15);
+        }
+        return view('view'.$i,['title'=>'一堆bug网']);
     }
 
     public function lists(Request $request)
@@ -97,10 +44,13 @@ class TestController extends Controller
             ->where($where)
             ->select('t2.name','t1.created_at','t1.id','t1.work_name','t1.data_url','t1.created_at')
             ->orderBy('t1.'.$sort,$sort_type)
-            ->paginate(1);
+            ->paginate(20);
         return view('lists',['title'=>'最新文章','works'=>$works]);
     }
 
+    /*
+     * 增加浏览次数
+     */
     public function add_views(Request $request)
     {
         $aid = $request->input('aid',0);
@@ -108,6 +58,24 @@ class TestController extends Controller
             DB::table('work')->where('id',$aid)->increment('view_times');
         }
         return response()->json(['code'=>200,'data'=>[]],200);
+    }
+
+    /*
+     * 添加文章
+     */
+    public function add_work(Request $request)
+    {
+        if($request->isMethod('post')){
+            $data = $request->input();
+            //validator([$data['work_name'],$data['data_url']],[['string'],['url']]);
+            $rs = DB::table('work')->insert($data);
+            if($rs){
+                return response()->json(['code'=>200,'data'=>[]],200);
+            }
+            return response()->json(['code'=>500,'data'=>[],'msg'=>'操作失败'],200);
+        }
+        $work_types =DB::table('work_type')->where('is_show',1)->orderBy('sort','asc')->get();
+        return view('add_work',['title'=>'添加文章','work_types'=>$work_types]);
     }
 }
 

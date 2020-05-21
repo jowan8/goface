@@ -127,7 +127,7 @@
                 <tr>
                     <td> <a class="detail" data-url="{{$work->data_url}}" data-id="{{$work->id}}" target="_blank" onclick="see_detail(this)" > {{$work->work_name}} </a> </td>
                     <td> @if($work->view_times>100) 99+ @else{{$work->view_times}}@endif </td>
-                    <td> {{$work->created_at}} </td>
+                    <td> {{date('Y-m-d',strtotime($work->created_at))}} </td>
                 </tr>
             @endforeach
             </tbody>

@@ -27,7 +27,7 @@
         }
         .none{
             text-align: center;
-            margin-top: 50%;
+            margin-top: 30%;
         }
         .none p{
             text-align: center;
@@ -53,7 +53,7 @@
                 <tr>
                     <td> <a class="detail" data-url="{{$work->data_url}}" data-id="{{$work->id}}" target="_blank" onclick="see_detail(this)" > {{$work->work_name}} </a> </td>
                     <td> {{$work->name}} </td>
-                    <td> {{$work->created_at}} </td>
+                    <td> {{ date('Y-m-d',strtotime($work->created_at))}} </td>
                 </tr>
             @endforeach
 
@@ -65,7 +65,7 @@
             <img src="https://img.china-dfs.com/jowan/tishi/none.jpg">
             <p>旺旺旺</p>
             <p>暂时没有此类文章的数据哦!</p>
-            <p>点此<a href="{{url('/add_work')}}">添加吧</a></p>
+            <p>点此<a href="{{url('/add_work')}}">添加</a>吧</p>
         </div>
 
     @endif

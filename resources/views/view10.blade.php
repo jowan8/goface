@@ -29,9 +29,9 @@
         };
 
         var Teamkill = function() {
-            var text = '一 堆 BUG 网  欢 迎 您!';
+            var text = 'ጿ ኈ ቼ ዽ ጿ ኈ ቼ ዽ';
             var font = 'Helvetica';
-            var fontSize = 100;
+            var fontSize = 160;
 
             var compositionAtop = 'source-atop';
             var compositionNormal = 'source-over';
