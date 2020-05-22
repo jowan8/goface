@@ -10,13 +10,13 @@
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico.ico')}}" /><!--苹果 ico配置-->
     <link rel="apple-touch-startup-image" href="{{asset('images/ico.ico')}}" /><!--苹果 启动时的照片-->
     <link rel="icon" href={{asset('images/ico.ico')}} type="images/x-ico" />
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('css/bootstrap-3.3.7.min.css')}}">
     <link rel="stylesheet" href={{asset('layer/theme/default/layer.css')}}>
-
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{{asset('js/jquery-2.1.1.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap-3.3.7.min.js')}}"></script>
     <script src={{asset('layer/layer.js')}}></script>
 
-    <title>{{$title}}</title>
+    <title>添加文章</title>
 
     <style>
         * {
@@ -27,6 +27,9 @@
             min-width: 320px;
             font-family: '微软雅黑', '宋体', sans-serif;
             height: 100%;
+        }
+        #add_work{
+            margin-top: 10%;
         }
     </style>
 
@@ -49,11 +52,14 @@
         </div>
         <div class="form-group">
             <label for="type_id" class="col-sm-2 control-label">所属类型</label>
+            <div class="col-sm-10">
+
             <select class="form-control" name="type_id" id="type_id">
                 @foreach($work_types as $type)
                     <option value="{{$type->id}}">{{$type->name}}</option>
                 @endforeach
             </select>
+            </div>
         </div>
         <button type="button" class="btn btn-block btn-info" onclick="check_data()" >提交</button>
     </form>

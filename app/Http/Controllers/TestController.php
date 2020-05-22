@@ -44,7 +44,7 @@ class TestController extends Controller
             ->where($where)
             ->select('t2.name','t1.created_at','t1.id','t1.work_name','t1.data_url','t1.created_at')
             ->orderBy('t1.'.$sort,$sort_type)
-            ->paginate(20);
+            ->paginate(17);
         return view('work/lists',['title'=>'最新文章','works'=>$works]);
     }
 

@@ -10,11 +10,11 @@
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico.ico')}}" /><!--苹果 ico配置-->
     <link rel="apple-touch-startup-image" href="{{asset('images/ico.ico')}}" /><!--苹果 启动时的照片-->
     <link rel="icon" href={{asset('images/ico.ico')}} type="images/x-ico" />
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{asset('css/bootstrap-3.3.7.min.css')}}">
+    <script src="{{asset('js/jquery-2.1.1.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap-3.3.7.min.js')}}"></script>
 
     <title>{{$title}}</title>
-
     <style>
         * {
             margin: 0;
@@ -40,7 +40,13 @@
 <div class="container">
     @if(isset($works[0]->id))
     <table class="table">
-        <caption> 最新文章</caption>
+        <caption>
+            <span>最新文章</span>
+            <span>
+                <a href="{{asset('/add_work')}}" style="float: right;display: block">我要添加</a>
+            </span>
+        </caption>
+
         <thead>
         <tr>
             <th> 文章名  </th>

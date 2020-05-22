@@ -2,30 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0906cb2e-e0d7-409d-aaa0-c01b5e7a8a8a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/error/404.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-3.3.7.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/swiper-5.4.1.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/bootstrap-3.3.7.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jquery-2.1.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/swiper-5.4.1.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/add_work.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/work/add_work.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lists.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/work/lists.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view1.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view10.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view10.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view11.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view11.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view12.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view12.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view13.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view13.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view14.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view14.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view15.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view15.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view16.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view16.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view3.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view3.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view4.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view4.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view5.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view5.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view6.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view6.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view7.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view7.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view8.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view8.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view9.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show/view9.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/work.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/work/add_work.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/work/add_work.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/work/lists.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/work/lists.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +103,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
@@ -129,11 +116,11 @@
       <recent name="C:\phpStudy\WWW\goface\public\js\view6" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\goface\public\js" />
+      <recent name="D:\projects\goface\public\css" />
       <recent name="D:\projects\goface\resources\assets" />
       <recent name="D:\projects\goface" />
       <recent name="D:\projects\goface\resources\views" />
-      <recent name="D:\projects\goface\public\js\view15" />
-      <recent name="D:\projects\goface\public\images\20191205" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -184,7 +171,7 @@
       <workItem from="1550817245440" duration="16693000" />
       <workItem from="1575360339969" duration="8989000" />
       <workItem from="1575522590963" duration="20807000" />
-      <workItem from="1589960763894" duration="41970000" />
+      <workItem from="1589960763894" duration="52711000" />
     </task>
     <servers />
   </component>

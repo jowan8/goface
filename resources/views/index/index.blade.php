@@ -10,11 +10,11 @@
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico.ico')}}" /><!--苹果 ico配置-->
     <link rel="apple-touch-startup-image" href="{{asset('images/ico.ico')}}" /><!--苹果 启动时的照片-->
     <link rel="icon" href={{asset('images/ico.ico')}} type="images/x-ico" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-    <script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{asset('css/swiper-5.4.1.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap-3.3.7.min.css')}}">
+    <script src="{{asset('js/swiper-5.4.1.min.js')}}"> </script>
+    <script src="{{asset('js/jquery-2.1.1.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap-3.3.7.min.js')}}"></script>
 
     <title>{{$title}}</title>
 

@@ -47,8 +47,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if($exception instanceof NotFoundHttpException){
-            //return view('show/view'.'1',['title'=>'一堆bug网']);
-            return \Illuminate\Support\Facades\Response::make(view('show/view9',['title'=>'您访问的页面不存在']), 404);
+            return \Illuminate\Support\Facades\Response::make(view('show/view9',['title'=>'您访问的页面不存在']));
         }
         return parent::render($request, $exception);
     }
