@@ -14,7 +14,7 @@ class TestController extends Controller
         $works = DB::table('work')->orderBy('view_times','desc')->limit(10)->get();
         $shows = DB::table('show')->where('is_show',1)->orderBy('sort','asc')->limit(6)->get();
 
-        return view('index',['title'=>'学习计划','works'=>$works,'work_types'=>$work_types,'shows'=>$shows]);
+        return view('index/index',['title'=>'学习计划','works'=>$works,'work_types'=>$work_types,'shows'=>$shows]);
     }
 
     public function jumpTo(Request $request)
@@ -23,7 +23,7 @@ class TestController extends Controller
         if(!$i){
             $i = mt_rand(1,15);
         }
-        return view('view'.$i,['title'=>'一堆bug网']);
+        return view('show/view'.$i,['title'=>'一堆bug网']);
     }
 
     public function lists(Request $request)
@@ -45,7 +45,7 @@ class TestController extends Controller
             ->select('t2.name','t1.created_at','t1.id','t1.work_name','t1.data_url','t1.created_at')
             ->orderBy('t1.'.$sort,$sort_type)
             ->paginate(20);
-        return view('lists',['title'=>'最新文章','works'=>$works]);
+        return view('work/lists',['title'=>'最新文章','works'=>$works]);
     }
 
     /*
@@ -75,7 +75,7 @@ class TestController extends Controller
             return response()->json(['code'=>500,'data'=>[],'msg'=>'操作失败'],200);
         }
         $work_types =DB::table('work_type')->where('is_show',1)->orderBy('sort','asc')->get();
-        return view('add_work',['title'=>'添加文章','work_types'=>$work_types]);
+        return view('work/add_work',['title'=>'添加文章','work_types'=>$work_types]);
     }
 }
 

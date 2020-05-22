@@ -5,6 +5,8 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -44,6 +46,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if($exception instanceof NotFoundHttpException){
+            //return view('show/view'.'1',['title'=>'一堆bug网']);
+            return \Illuminate\Support\Facades\Response::make(view('show/view9',['title'=>'您访问的页面不存在']), 404);
+        }
         return parent::render($request, $exception);
     }
 
