@@ -95,9 +95,9 @@
     <div id="banner">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"> <img src="http://bpic.588ku.com/back_pic/02/51/25/72578107a0e8f67.jpg" > </div>
-                <div class="swiper-slide"> <img src="http://bpic.588ku.com/back_pic/02/51/25/72578107a0e8f67.jpg" > </div>
-                <div class="swiper-slide"> <img src="http://bpic.588ku.com/back_pic/02/51/25/72578107a0e8f67.jpg" > </div>
+                @foreach($banners as $banner)
+                <div class="swiper-slide"> <a href="{{$banner->jump_url}}"><img src="{{$banner->img_url}}" > </a></div>
+                @endforeach
             </div>
             <!-- 如果需要分页器 -->
             <div class="swiper-pagination"></div>

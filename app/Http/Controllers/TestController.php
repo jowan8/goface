@@ -13,8 +13,9 @@ class TestController extends Controller
         $work_types = DB::table('work_type')->where('is_show',1)->orderBy('sort','asc')->limit(8)->get();
         $works = DB::table('work')->orderBy('view_times','desc')->limit(10)->get();
         $shows = DB::table('show')->where('is_show',1)->orderBy('sort','asc')->limit(6)->get();
+        $banners = DB::table('banner')->where('is_show',1)->orderBy('sort','asc')->limit(6)->get();
 
-        return view('index/index',['title'=>'学习计划','works'=>$works,'work_types'=>$work_types,'shows'=>$shows]);
+        return view('index/index',['title'=>'学习计划','works'=>$works,'work_types'=>$work_types,'shows'=>$shows,'banners'=>$banners]);
     }
 
     public function jumpTo(Request $request)

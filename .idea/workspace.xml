@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0906cb2e-e0d7-409d-aaa0-c01b5e7a8a8a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/bootstrap-3.3.7.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/swiper-5.4.1.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/bootstrap-3.3.7.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/jquery-2.1.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/swiper-5.4.1.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/work/add_work.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/work/add_work.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/work/lists.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/work/lists.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +163,7 @@
       <workItem from="1550817245440" duration="16693000" />
       <workItem from="1575360339969" duration="8989000" />
       <workItem from="1575522590963" duration="20807000" />
-      <workItem from="1589960763894" duration="52711000" />
+      <workItem from="1589960763894" duration="54154000" />
     </task>
     <servers />
   </component>
