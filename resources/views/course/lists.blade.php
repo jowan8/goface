@@ -43,7 +43,7 @@
         <caption>
             <span>最新文章</span>
             <span>
-                <a href="{{asset('/add_work')}}" style="float: right;display: block">我要添加</a>
+                <a href="{{url('/add_work')}}" style="float: right;display: block">我要添加</a>
             </span>
         </caption>
 
@@ -75,6 +75,7 @@
         </div>
 
     @endif
+    <dd><a href="{{url('/course_detail')}}">详情</a></dd>
     {{$works -> links()}}
 
 </div>
