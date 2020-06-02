@@ -25,7 +25,7 @@ class WebRequest
         $return = json_decode($return_json,true);
         $data['client_info'] = $return_json;
         if($return&&$return['status']=='success'){
-            $data['clitent_address'] =  $data['country'].' '.$data['regionName'];
+            $data['clitent_address'] =  $return['country'].' '.$return['regionName'];
         }else{
             $data['clitent_address'] =  '';
         }
