@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0906cb2e-e0d7-409d-aaa0-c01b5e7a8a8a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/WebRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/WebRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/course/detail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/course/lists.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -93,24 +97,24 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/course" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\goface\resources\views\course" />
+      <recent name="D:\projects\goface\public\js" />
+      <recent name="D:\projects\goface\public\css" />
+      <recent name="D:\projects\goface\resources\assets" />
+      <recent name="D:\projects\goface" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\projects\goface\resources\views\work" />
       <recent name="D:\projects\goface\resources\views\index" />
       <recent name="D:\projects\goface\resources\views\show" />
       <recent name="D:\projects\goface\public\js" />
       <recent name="C:\phpStudy\WWW\goface\public\js\view6" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\projects\goface\public\js" />
-      <recent name="D:\projects\goface\public\css" />
-      <recent name="D:\projects\goface\resources\assets" />
-      <recent name="D:\projects\goface" />
-      <recent name="D:\projects\goface\resources\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -162,7 +166,7 @@
       <workItem from="1575360339969" duration="8989000" />
       <workItem from="1575522590963" duration="20807000" />
       <workItem from="1589960763894" duration="58637000" />
-      <workItem from="1590636278849" duration="19016000" />
+      <workItem from="1590636278849" duration="24840000" />
     </task>
     <servers />
   </component>

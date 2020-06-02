@@ -78,6 +78,48 @@ class TestController extends Controller
         $work_types =DB::table('work_type')->where('is_show',1)->orderBy('sort','asc')->get();
         return view('work/add_work',['title'=>'添加文章','work_types'=>$work_types]);
     }
+
+
+    public function courses(Request $request)
+    {
+        $type_id = $request->input('type_id',0);
+        $sort = $request->input('sort','id');
+        $sort_type = $request->input('sort_type','desc');
+
+        $where=[
+            'is_show'=>0,
+        ];
+        /*
+        if($type_id){
+            $where['type_id'] = $type_id;
+        }
+        */
+        $works = DB::table('course')
+            ->where($where)
+            ->orderBy($sort,$sort_type)
+            ->paginate(10);
+        return view('course/courses',['title'=>'课程列表','works'=>$works]);
+    }
+
+    public function course_detail(Request $request){
+        $course_id = $request->input('course_id',1);
+        $chapter = DB::table('chapter')
+            ->where(['course_id'=>$course_id,'main_id'=>0])
+            ->select('id','video_time','course_id','main_id','chapter_title','chapter_desc','course_url','course_video_url')
+            ->orderBy('id','asc')
+            ->get();
+        foreach ($chapter as $k=>$v){
+            $chapter[$k]->sub_chapter = DB::table('chapter')
+                ->where(['course_id'=>$course_id,'main_id'=>$v->id])
+                ->select('video_time','course_id','main_id','chapter_title','chapter_desc','course_url','course_video_url')
+                ->orderBy('id','asc')
+                ->get();
+        }
+//dd($chapter);
+        return view('course/detail',['title'=>'课程详情','chapter'=>$chapter]);
+
+    }
+
 }
 
 
