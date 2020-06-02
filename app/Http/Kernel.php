@@ -58,5 +58,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'checkToken' => \App\Http\Middleware\CheckToken::class,
         'noCheckToken' => \App\Http\Middleware\NotCheckToken::class,
+        'webRq' => \App\Http\Middleware\WebRequest::class,
     ];
 }
