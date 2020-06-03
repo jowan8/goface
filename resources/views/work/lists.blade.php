@@ -75,7 +75,8 @@
         </div>
 
     @endif
-    {{$works -> links()}}
+        <dd><a href="{{url('/course_detail')}}">课程</a></dd>
+        {{$works -> links()}}
 
 </div>
 </body>
