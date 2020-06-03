@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="Description" content="ydbug(一堆bug网)是由个人开发,记录学习PHP、NGINX、HTML5、JS、LINUX、GOLANG等当前主流语言的交流平台,主要文章来自于三方技术网站" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="format-detection" content="telephone=no" /><!--不识别手机号-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><!--屏幕宽高限定 -->
