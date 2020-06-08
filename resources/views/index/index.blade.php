@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="Description" content="ydbug(一堆bug网)是由个人开发,记录学习PHP、NGINX、HTML5、JS、LINUX、GOLANG等当前主流语言的交流平台,主要文章来自于三方技术网站" />
+    <meta name="description" content="ydbug(一堆bug网)是由个人开发,记录学习PHP、NGINX、HTML5、JS、LINUX、GOLANG等当前主流语言的交流平台,主要文章来自于三方技术网站" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="format-detection" content="telephone=no" /><!--不识别手机号-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><!--屏幕宽高限定 -->
@@ -89,6 +89,15 @@
         }
     </style>
 
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?86f264319519d6bf86b0c1199994db2c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body>
 <div class="container">
