@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
-
+    /**
+     * 网站首页
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(Request $request)
     {
         $work_types = DB::table('work_type')->where('is_show',1)->orderBy('sort','asc')->limit(8)->get();
@@ -18,6 +22,11 @@ class TestController extends Controller
         return view('index/index',['title'=>'学习计划','works'=>$works,'work_types'=>$work_types,'shows'=>$shows,'banners'=>$banners]);
     }
 
+    /**
+     * 动效
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function jumpTo(Request $request)
     {
         $i = $request->get('style',0);
@@ -27,6 +36,11 @@ class TestController extends Controller
         return view('show/view'.$i,['title'=>'一堆bug网']);
     }
 
+    /**
+     * 学习文章列表
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function lists(Request $request)
     {
 
@@ -101,6 +115,11 @@ class TestController extends Controller
         return view('course/courses',['title'=>'课程列表','works'=>$works]);
     }
 
+    /**
+     * 课程详情
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function course_detail(Request $request){
         $course_id = $request->input('course_id',1);
         $chapter = DB::table('chapter')
@@ -120,6 +139,113 @@ class TestController extends Controller
 
     }
 
+
+    /**
+     * 首页数据分析
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function analyze(Request $request)
+    {
+        $type = $request->input('type',1);
+        switch ($type){
+            case 1:
+                $data['time'][0] = '4时';
+                $data['data'][0] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00'),date('Y-m-d 03:59:59')])
+                    ->count();
+                $data['time'][1] = '8时';
+                $data['data'][1] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 04:00:00'),date('Y-m-d 07:59:59')])
+                    ->count();
+                $data['time'][2] = "12时";
+                $data['data'][2] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 08:00:00'),date('Y-m-d 13:59:59')])
+                    ->count();
+                $data['time'][3] = "16时";
+                $data['data'][3] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 12:00:00'),date('Y-m-d 15:59:59')])
+                    ->count();
+                $data['time'][4] = "20时";
+                $data['data'][4] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 16:00:00'),date('Y-m-d 19:59:59')])
+                    ->count();
+                $data['time'][5] = "24时";
+                $data['data'][5] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 20:00:00'),date('Y-m-d 23:59:59')])
+                    ->count();
+
+                $data['type'] = 'bar';
+                $data['color'] = '#87cefa';
+
+
+                break;
+            case 2:
+                $data['time'][0] = date('m/d',strtotime ( '-6 days' ));
+                $data['data'][0] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00',strtotime ( '-6 days' )),date('Y-m-d 23:59:59',strtotime ( '-6 days' ))])
+                    ->count();
+                $data['time'][1] = date('m/d',strtotime ( '-5 days' ));
+                $data['data'][1] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00',strtotime ( '-5 days' )),date('Y-m-d 23:59:59',strtotime ( '-5 days' ))])
+                    ->count();
+                $data['time'][2] = date('m/d',strtotime ( '-4 days' ));
+                $data['data'][2] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00',strtotime ( '-4 days' )),date('Y-m-d 23:59:59',strtotime ( '-4 days' ))])
+                    ->count();
+                $data['time'][3] = date('m/d',strtotime ( '-3 days' ));
+                $data['data'][3] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00',strtotime ( '-3 days' )),date('Y-m-d 23:59:59',strtotime ( '-3 days' ))])
+                    ->count();
+                $data['time'][4] = date('m/d',strtotime ( '-2 days' ));
+                $data['data'][4] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00',strtotime ( '-2 days' )),date('Y-m-d 23:59:59',strtotime ( '-2 days' ))])
+                    ->count();
+                $data['time'][5] = date('m/d',strtotime ( '-1 days' ));
+                $data['data'][5] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00',strtotime ( '-1 days' )),date('Y-m-d 23:59:59',strtotime ( '-1 days' ))])
+                    ->count();
+                $data['time'][6] = date('m/d');
+                $data['data'][6] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00'),date('Y-m-d 23:59:59')])
+                    ->count();
+
+                $data['type'] = 'bar';
+                $data['color'] = '#da70d6';
+
+                break;
+            case 3:
+                $data['time'][0] = date('m/d',strtotime ( '-34 days' ));
+                $data['data'][0] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00',strtotime ( '-34 days' )),date('Y-m-d 23:59:59',strtotime ( '-27 days' ))])
+                    ->count();
+                $data['time'][1] = date('m/d',strtotime ( '-27 days' ));
+                $data['data'][1] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00',strtotime ( '-27 days' )),date('Y-m-d 23:59:59',strtotime ( '-20 days' ))])
+                    ->count();
+                $data['time'][2] = date('m/d',strtotime ( '-20 days' ));
+                $data['data'][2] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00',strtotime ( '-20 days' )),date('Y-m-d 23:59:59',strtotime ( '-13 days' ))])
+                    ->count();
+                $data['time'][3] = date('m/d',strtotime ( '-13 days' ));
+                $data['data'][3] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00',strtotime ( '-13 days' )),date('Y-m-d 23:59:59',strtotime ( '-6 days' ))])
+                    ->count();
+                $data['time'][4] = date('m/d',strtotime ( '-6 days' ));
+                $data['data'][4] = DB::table('request')
+                    ->whereBetween('created_at',[date('Y-m-d 00:00:00',strtotime ( '-6 days' )),date('Y-m-d 23:59:59')])
+                    ->count();
+
+                $data['type'] = 'line';
+                $data['color'] = '#ff7f50';
+
+                break;
+        }
+
+
+
+        return response()->json(['code'=>200,'data'=>['analyze'=>$data]],200);
+    }
 }
 
 
