@@ -7,5 +7,6 @@ Route::group(['middleware'=>'webRq'],function(){
     Route::get('/course_detail','TestController@course_detail');//课程详情
     Route::post('/add_views','TestController@add_views');//添加浏览次数
     Route::any('/add_work','TestController@add_work');//添加文章
-    Route::get('/analyze','TestController@analyze');//添加文章
+    Route::get('/analyze','TestController@analyze');//访问数据统计
+    Route::get('/recent_visit','TestController@recent_visit');//近期访客
 });

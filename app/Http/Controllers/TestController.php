@@ -241,10 +241,23 @@ class TestController extends Controller
 
                 break;
         }
-
-
-
         return response()->json(['code'=>200,'data'=>['analyze'=>$data]],200);
+    }
+
+    /**
+     * 近期访客滚动
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function recent_visit(Request $request)
+    {
+        $data= DB::table('request')
+            ->select('created_at','client_ip','client_address')
+            ->orderby('id','desc')
+            ->groupby('client_ip')
+            ->limit(3)
+            ->get();
+        return response()->json(['code'=>200,'data'=>['visit'=>$data]],200);
     }
 }
 
