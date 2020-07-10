@@ -174,6 +174,11 @@
     </div>
 
     <div class='analyze'>
+        <caption> 近期访客</caption>
+
+        <div class="recent-visit" >
+        </div>
+
         <div class='tabbable tabs-left'>
             <ul class='nav nav-tabs'>
                 <li class="active" data-type_id="1" onclick="get_data(1)"><a href='#tab-pane-1'data-toggle='tab'>本日数据</a></li>
@@ -188,7 +193,6 @@
         </div>
 
     </div>
-
 </div>
 
 
@@ -206,7 +210,28 @@
         },
     });
 
-    function get_data(obj){
+    function visit(){
+        $.ajax({
+            type: "GET",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "/recent_visit",
+            dataType: "json",
+            success: function (return_obj) {
+                if(return_obj.code == 200){
+                    var html = '';
+                    $.each(return_obj.data.visit,function(index,value){
+                        html+= '<marquee direction="up" scrolldelay="1500" >来自'+value.client_address +'的网友['+ value.client_ip +']'+ value.created_at+'到访</marquee>';
+                    });
+                    $('.recent-visit').append(html);
+                }
+            }
+        });
+    }
+
+
+    function analyze(obj){
         var type_id = obj;
         var myChart = echarts.init(document.getElementById('tab-pane-'+type_id));
         console.log(document.getElementById('tab-pane-'+type_id));
@@ -244,7 +269,12 @@
             }
         });
     }
-    get_data(1);
+
+
+
+    visit();
+    analyze(1);
+
     function see_detail(obj) {
         var url = $(obj).data('url');
         var aid = $(obj).data('id');
