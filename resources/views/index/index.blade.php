@@ -272,7 +272,10 @@
 
 
 
-    visit();
+    setTimeout("visit()",5000);
+    //visit();
+
+
     analyze(1);
 
     function see_detail(obj) {
