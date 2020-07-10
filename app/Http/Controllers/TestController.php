@@ -255,7 +255,7 @@ class TestController extends Controller
             ->select('created_at','client_ip','client_address')
             ->orderby('id','desc')
             ->groupby('client_ip')
-            ->limit(3)
+            ->limit(1)
             ->get();
         return response()->json(['code'=>200,'data'=>['visit'=>$data]],200);
     }
