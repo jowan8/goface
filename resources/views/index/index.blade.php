@@ -181,9 +181,9 @@
 
         <div class='tabbable tabs-left'>
             <ul class='nav nav-tabs'>
-                <li class="active" data-type_id="1" onclick="get_data(1)"><a href='#tab-pane-1'data-toggle='tab'>本日数据</a></li>
-                <li class="" data-type_id="2"  onclick="get_data(2)"><a href='#tab-pane-2' data-toggle='tab'>本周数据</a></li>
-                <li class="" data-type_id="3" onclick="get_data(3)"><a href='#tab-pane-3' data-toggle='tab'>上月数据</a></li>
+                <li class="active" data-type_id="1" onclick="analyze(1)"><a href='#tab-pane-1'data-toggle='tab'>本日数据</a></li>
+                <li class="" data-type_id="2"  onclick="analyze(2)"><a href='#tab-pane-2' data-toggle='tab'>本周数据</a></li>
+                <li class="" data-type_id="3" onclick="analyze(3)"><a href='#tab-pane-3' data-toggle='tab'>上月数据</a></li>
             </ul>
             <div class='tab-content'>
                 <div  class='tab-pane active' id='tab-pane-1'></div>
