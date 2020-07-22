@@ -94,7 +94,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cdfs-new" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
@@ -169,7 +169,8 @@
       <workItem from="1592464748186" duration="15965000" />
       <workItem from="1592788431797" duration="31206000" />
       <workItem from="1594603051503" duration="85000" />
-      <workItem from="1594603161290" duration="1790000" />
+      <workItem from="1594603161290" duration="2141000" />
+      <workItem from="1595384993410" duration="212000" />
     </task>
     <servers />
   </component>
