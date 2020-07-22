@@ -19,7 +19,7 @@ class TestController extends Controller
         $shows = DB::table('show')->where('is_show',1)->orderBy('sort','asc')->limit(6)->get();
         $banners = DB::table('banner')->where('is_show',1)->orderBy('sort','asc')->limit(6)->get();
 
-        return view('index/index',['title'=>'一堆bug网 首页','works'=>$works,'work_types'=>$work_types,'shows'=>$shows,'banners'=>$banners]);
+        return view('index/index',['title'=>'一堆bug网','works'=>$works,'work_types'=>$work_types,'shows'=>$shows,'banners'=>$banners]);
     }
 
     /**

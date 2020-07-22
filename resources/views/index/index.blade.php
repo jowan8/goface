@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="title" content="一堆BUG网" />
+    <meta name="keywords" content="一堆bug网 程序员交流学习进步的平台  " />
     <meta name="description" content="ydbug(一堆bug网)是由个人开发,记录学习PHP、NGINX、HTML5、JS、LINUX、GOLANG等当前主流语言的交流平台,主要文章来自于三方技术网站" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="format-detection" content="telephone=no" /><!--不识别手机号-->
